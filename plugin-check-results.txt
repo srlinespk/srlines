@@ -1,0 +1,156 @@
+Plugin Check
+Check the Plugin
+Select a plugin to check it for best practices in several categories and security issues. For more information about the checks, use the Help tab at the top of this page.
+
+
+SRLines Order Notifications
+  
+Categories
+general General
+plugin_repo Plugin Repo
+security Security
+performance Performance
+accessibility Accessibility
+Types
+error Error
+warning Warning
+Export CSV
+Export JSON
+Export Markdown
+Checks complete. Errors were found.
+
+FILE: srlines-order-notifications.php
+Line	Column	Type	Code	Message	Edit Link
+333	113	ERROR	WordPress.Security.EscapeOutput.OutputNotEscaped	All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found 'admin_url'.
+Learn more (opens in a new tab)	View in code editor (opens in a new tab)
+1160	41	ERROR	WordPress.Security.EscapeOutput.OutputNotEscaped	All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found 'admin_url'.
+Learn more (opens in a new tab)	View in code editor (opens in a new tab)
+1161	41	ERROR	WordPress.Security.EscapeOutput.OutputNotEscaped	All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found 'admin_url'.
+Learn more (opens in a new tab)	View in code editor (opens in a new tab)
+1162	41	ERROR	WordPress.Security.EscapeOutput.OutputNotEscaped	All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found 'admin_url'.
+Learn more (opens in a new tab)	View in code editor (opens in a new tab)
+1472	30	ERROR	WordPress.Security.EscapeOutput.OutputNotEscaped	All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found 'paginate_links'.
+Learn more (opens in a new tab)	View in code editor (opens in a new tab)
+1581	30	ERROR	WordPress.Security.EscapeOutput.OutputNotEscaped	All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found 'paginate_links'.
+Learn more (opens in a new tab)	View in code editor (opens in a new tab)
+
+FILE: srlines-order-notifications.php
+Line	Column	Type	Code	Message	Edit Link
+431	17	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->context_table} at "SELECT order_id FROM {$this->context_table} WHERE msg_id = %s LIMIT 1"	View in code editor (opens in a new tab)
+447	17	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->context_table} at "SELECT order_id FROM {$this->context_table} \r\n	View in code editor (opens in a new tab)
+470	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "SELECT id FROM {$this->responses_table} \r\n	View in code editor (opens in a new tab)
+663	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "SELECT id FROM {$this->table_name} \r\n	View in code editor (opens in a new tab)
+784	25	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->context_table} at "SELECT id FROM {$this->context_table} WHERE msg_id = %s"	View in code editor (opens in a new tab)
+852	44	WARNING	WordPress.Security.ValidatedSanitizedInput.MissingUnslash	$_POST['crmApiKey'] not unslashed before sanitization. Use wp_unslash() or similar	View in code editor (opens in a new tab)
+854	55	WARNING	WordPress.Security.ValidatedSanitizedInput.MissingUnslash	$_POST['orderCreatedTemplate'] not unslashed before sanitization. Use wp_unslash() or similar	View in code editor (opens in a new tab)
+856	61	WARNING	WordPress.Security.ValidatedSanitizedInput.MissingUnslash	$_POST['fulfillmentCreatedTemplate'] not unslashed before sanitization. Use wp_unslash() or similar	View in code editor (opens in a new tab)
+857	46	WARNING	WordPress.Security.ValidatedSanitizedInput.MissingUnslash	$_POST['defaultPhone'] not unslashed before sanitization. Use wp_unslash() or similar	View in code editor (opens in a new tab)
+899	40	WARNING	WordPress.Security.ValidatedSanitizedInput.MissingUnslash	$_POST['apiKey'] not unslashed before sanitization. Use wp_unslash() or similar	View in code editor (opens in a new tab)
+952	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "SELECT * FROM {$this->responses_table} WHERE id = %d"	View in code editor (opens in a new tab)
+1001	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "SELECT * FROM {$this->table_name} WHERE id = %d"	View in code editor (opens in a new tab)
+1025	47	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "SELECT COUNT(*) FROM {$this->table_name}"	View in code editor (opens in a new tab)
+1026	46	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "SELECT COUNT(*) FROM {$this->table_name} WHERE status = 'sent'"	View in code editor (opens in a new tab)
+1027	48	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "SELECT COUNT(*) FROM {$this->table_name} WHERE status = 'failed'"	View in code editor (opens in a new tab)
+1028	43	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "SELECT COUNT(*) FROM {$this->responses_table}"	View in code editor (opens in a new tab)
+1029	47	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "SELECT COUNT(*) FROM {$this->responses_table} WHERE processed = 1"	View in code editor (opens in a new tab)
+1033	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "SELECT * FROM {$this->responses_table} ORDER BY created_at DESC LIMIT 10"	View in code editor (opens in a new tab)
+1375	23	WARNING	WordPress.Security.NonceVerification.Recommended	Processing form data without nonce verification.	View in code editor (opens in a new tab)
+1375	55	WARNING	WordPress.Security.NonceVerification.Recommended	Processing form data without nonce verification.	View in code editor (opens in a new tab)
+1379	33	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "SELECT COUNT(*) FROM {$this->responses_table}"	View in code editor (opens in a new tab)
+1383	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "SELECT * FROM {$this->responses_table} ORDER BY created_at DESC LIMIT %d OFFSET %d"	View in code editor (opens in a new tab)
+1492	23	WARNING	WordPress.Security.NonceVerification.Recommended	Processing form data without nonce verification.	View in code editor (opens in a new tab)
+1492	55	WARNING	WordPress.Security.NonceVerification.Recommended	Processing form data without nonce verification.	View in code editor (opens in a new tab)
+1496	33	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "SELECT COUNT(*) FROM {$this->table_name}"	View in code editor (opens in a new tab)
+1500	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "SELECT * FROM {$this->table_name} ORDER BY created_at DESC LIMIT %d OFFSET %d"	View in code editor (opens in a new tab)
+1677	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->context_table} at "DELETE FROM {$this->context_table} WHERE created_at < DATE_SUB(NOW(), INTERVAL 7 DAY)"	View in code editor (opens in a new tab)
+1681	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->responses_table} at "DELETE FROM {$this->responses_table} WHERE processed = 1 AND created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)"	View in code editor (opens in a new tab)
+1685	13	WARNING	WordPress.DB.PreparedSQL.InterpolatedNotPrepared	Use placeholders and $wpdb->prepare(); found interpolated variable {$this->table_name} at "DELETE FROM {$this->table_name} WHERE status IN ('sent', 'failed') AND created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)"	View in code editor (opens in a new tab)
+
+FILE: uninstall.php
+Line	Column	Type	Code	Message	Edit Link
+21	1	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+21	1	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+21	15	WARNING	WordPress.DB.DirectDatabaseQuery.SchemaChange	Attempting a database schema change is discouraged.	View in code editor (opens in a new tab)
+22	1	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+22	1	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+22	15	WARNING	WordPress.DB.DirectDatabaseQuery.SchemaChange	Attempting a database schema change is discouraged.	View in code editor (opens in a new tab)
+23	1	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+23	1	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+23	15	WARNING	WordPress.DB.DirectDatabaseQuery.SchemaChange	Attempting a database schema change is discouraged.	View in code editor (opens in a new tab)
+
+FILE: srlines-order-notifications.php
+Line	Column	Type	Code	Message	Edit Link
+430	24	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+430	24	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+446	24	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+446	24	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+469	21	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+469	21	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+482	9	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+499	9	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+499	9	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+512	13	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+512	13	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+662	21	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+662	21	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+697	13	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+697	13	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+707	13	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+758	17	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+758	17	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+783	33	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+783	33	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+789	25	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+822	13	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+822	13	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+951	21	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+951	21	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+968	13	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+968	13	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1000	25	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1000	25	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1025	32	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1025	32	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1026	31	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1026	31	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1027	33	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1027	33	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1028	28	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1028	28	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1029	32	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1029	32	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1032	29	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1032	29	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1379	18	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1379	18	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1382	22	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1382	22	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1496	18	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1496	18	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1499	26	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1499	26	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1676	28	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1676	28	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1680	30	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1680	30	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+1684	34	WARNING	WordPress.DB.DirectDatabaseQuery.DirectQuery	Use of a direct database call is discouraged.	View in code editor (opens in a new tab)
+1684	34	WARNING	WordPress.DB.DirectDatabaseQuery.NoCaching	Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().	View in code editor (opens in a new tab)
+
+FILE: srlines-order-notifications.php
+Line	Column	Type	Code	Message	Edit Link
+21	7	WARNING	WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound	Classes declared by a theme/plugin should start with the theme/plugin prefix. Found: "SRLines_Order_Notifications".	View in code editor (opens in a new tab)
+
+FILE: srlines-order-notifications.php
+Line	Column	Type	Code	Message	Edit Link
+430	31	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->context_table used in $wpdb->get_row($wpdb->prepare(\r\n "SELECT order_id FROM {$this->context_table} WHERE msg_id = %s LIMIT 1",\r\n $msg_id\r\n ))	View in code editor (opens in a new tab)
+446	31	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->context_table used in $wpdb->get_row($wpdb->prepare(\r\n "SELECT order_id FROM {$this->context_table} \r\n WHERE customer_phone = %s AND processed = 0 \r\n AND created_at > DATE_SUB(NOW(), INTERVAL 24 HOUR)\r\n ORDER BY created_at DESC LIMIT 1",\r\n $normalized_phone\r\n ))	View in code editor (opens in a new tab)
+469	28	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->get_var($wpdb->prepare(\r\n "SELECT id FROM {$this->responses_table} \r\n WHERE order_id = %s AND action = %s AND processed = 1 \r\n LIMIT 1",\r\n $order_id,\r\n $action\r\n ))	View in code editor (opens in a new tab)
+783	40	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->context_table used in $wpdb->get_var($wpdb->prepare(\r\n "SELECT id FROM {$this->context_table} WHERE msg_id = %s",\r\n $msg_id\r\n ))	View in code editor (opens in a new tab)
+951	28	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->get_row($wpdb->prepare(\r\n "SELECT * FROM {$this->responses_table} WHERE id = %d",\r\n $response_id\r\n ))	View in code editor (opens in a new tab)
+1028	35	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->get_var("SELECT COUNT(*) FROM {$this->responses_table}")	View in code editor (opens in a new tab)
+1029	39	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->get_var("SELECT COUNT(*) FROM {$this->responses_table} WHERE processed = 1")	View in code editor (opens in a new tab)
+1032	36	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->get_results("SELECT * FROM {$this->responses_table} ORDER BY created_at DESC LIMIT 10")	View in code editor (opens in a new tab)
+1379	25	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->get_var("SELECT COUNT(*) FROM {$this->responses_table}")	View in code editor (opens in a new tab)
+1382	29	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->get_results($wpdb->prepare(\r\n "SELECT * FROM {$this->responses_table} ORDER BY created_at DESC LIMIT %d OFFSET %d",\r\n $per_page,\r\n $offset\r\n ))	View in code editor (opens in a new tab)
+1676	35	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->context_table used in $wpdb->query("DELETE FROM {$this->context_table} WHERE created_at < DATE_SUB(NOW(), INTERVAL 7 DAY)")	View in code editor (opens in a new tab)
+1680	37	WARNING	PluginCheck.Security.DirectDB.UnescapedDBParameter	Unescaped parameter $this->responses_table used in $wpdb->query("DELETE FROM {$this->responses_table} WHERE processed = 1 AND created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)")
