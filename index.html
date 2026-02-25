@@ -36,7 +36,15 @@
         "name": "SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED",
         "url": "https://srlines.net",
         "logo": "https://srlines.net/logo.png",
-        "description": "Pakistan's #1 WhatsApp Cloud API Platform. Meta Verified Technology Partner offering affordable wCRM solutions.",
+        "description": "Pakistan's #1 WhatsApp Cloud API Platform. Meta Verified Technology Partner offering affordable wCRM solutions. SaaS platform built directly on Meta's official WhatsApp Cloud API.",
+        "foundingDate": "2024",
+        "legalName": "SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Haripur",
+            "addressRegion": "Khyber Pakhtunkhwa",
+            "addressCountry": "PK"
+        },
         "founder": {
             "@type": "Person",
             "name": "Mr. Shahid Rasool",
@@ -46,7 +54,8 @@
             "@type": "ContactPoint",
             "telephone": "+92-333-9776136",
             "contactType": "customer service",
-            "email": "contact@srlines.net"
+            "email": "contact@srlines.net",
+            "availableLanguage": ["English", "Urdu"]
         },
         "sameAs": [
             "https://github.com/srlinessoftwarehouse",
@@ -55,8 +64,23 @@
             "https://apps.shopify.com/wcrm",
             "https://play.google.com/store/apps/details?id=com.wcrm.app",
             "https://wordpress.org/plugins/srlines-order-notifications/",
-            "https://crm.srlines.net/partners"
-        ]
+            "https://crm.srlines.net/partners",
+            "https://share.google/dDpuHAwplSaKWMvGf"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "WhatsApp Cloud API Solutions",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "SoftwareApplication",
+                        "name": "wCRM Platform",
+                        "applicationCategory": "BusinessApplication"
+                    }
+                }
+            ]
+        }
     }
     </script>
     <script type="application/ld+json">
@@ -409,6 +433,72 @@
         .footer-social a:hover { background: var(--primary); color: white; transform: translateY(-2px); }
         .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); opacity: 0.7; font-size: 0.9rem; }
 
+        /* Architecture / Meta Positioning Section */
+        .architecture-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-bottom: 40px; }
+        .arch-card { background: white; padding: 28px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .arch-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99,102,241,0.15); }
+        .arch-card h4 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .arch-card h4 i { color: var(--primary); }
+        .arch-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
+        .arch-card ul { list-style: none; margin-top: 12px; }
+        .arch-card ul li { padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; color: var(--dark-alt); font-size: 0.9rem; }
+        .arch-card ul li i { color: var(--success); margin-top: 4px; }
+        .arch-flow { background: var(--dark); border-radius: 16px; padding: 32px; color: white; text-align: center; margin-top: 24px; }
+        .arch-flow h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+        .flow-steps { display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .flow-step { background: rgba(255,255,255,0.1); padding: 14px 20px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.15); }
+        .flow-arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* Case Studies Section */
+        .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
+        .case-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.05); }
+        .case-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(99,102,241,0.15); }
+        .case-header { padding: 24px 28px; background: var(--gradient-hero); color: white; }
+        .case-header h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+        .case-header .case-industry { opacity: 0.9; font-size: 0.85rem; }
+        .case-body { padding: 24px 28px; }
+        .case-body .case-challenge, .case-body .case-solution, .case-body .case-results { margin-bottom: 16px; }
+        .case-body h5 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .case-body p { color: var(--gray); font-size: 0.9rem; line-height: 1.7; }
+        .case-metrics { display: flex; gap: 16px; margin-top: 12px; }
+        .case-metric { text-align: center; flex: 1; padding: 10px; background: var(--light); border-radius: 10px; }
+        .case-metric .metric-value { font-size: 1.3rem; font-weight: 800; color: var(--primary); }
+        .case-metric .metric-label { font-size: 0.7rem; color: var(--gray); text-transform: uppercase; }
+        .case-footer { padding: 16px 28px; border-top: 1px solid rgba(0,0,0,0.06); }
+        .case-footer a { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; }
+        .case-footer a:hover { gap: 10px; }
+
+        /* Google Reviews Section */
+        .reviews-header { display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
+        .reviews-summary { text-align: center; }
+        .reviews-stars { color: #fbbf24; font-size: 1.5rem; margin-bottom: 6px; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 32px; }
+        .review-card { background: white; padding: 24px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); }
+        .review-card .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .review-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--gradient-hero); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+        .review-info h5 { font-size: 0.95rem; font-weight: 700; color: var(--dark); }
+        .review-info .review-date { font-size: 0.75rem; color: var(--gray); }
+        .review-card .review-stars { color: #fbbf24; font-size: 0.9rem; margin-bottom: 8px; }
+        .review-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.7; }
+        .google-review-btn { text-align: center; margin-top: 16px; }
+
+        /* Compliance Section */
+        .compliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+        .compliance-card { background: white; padding: 28px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .compliance-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99,102,241,0.15); }
+        .compliance-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .compliance-card h4 i { color: var(--success); }
+        .compliance-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+        .compliance-card a { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+        .compliance-card a:hover { text-decoration: underline; }
+        .compliance-card ul { list-style: none; margin-top: 8px; }
+        .compliance-card ul li { padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; color: var(--dark-alt); font-size: 0.85rem; }
+        .compliance-card ul li i { color: var(--success); margin-top: 3px; font-size: 0.8rem; }
+
+        /* Google Map */
+        .map-container { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); margin-top: 40px; }
+        .map-container iframe { width: 100%; height: 300px; border: 0; }
+
         @media (max-width: 992px) {
             .about-grid, .ceo-container, .n8n-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -454,12 +544,12 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
                     <li><a href="#products">Products</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#n8n">n8n</a></li>
-                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
                     <li><a href="#ceo">Founder</a></li>
-                    <li><a href="#careers">Careers</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -473,12 +563,12 @@
     <div class="mobile-menu" id="mobile-menu">
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#architecture">Architecture</a></li>
             <li><a href="#products">Products</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#n8n">n8n</a></li>
-            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#compliance">Compliance</a></li>
             <li><a href="#ceo">Founder</a></li>
-            <li><a href="#careers">Careers</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -578,8 +668,62 @@
         </div>
     </section>
 
+    <!-- Architecture & Meta Positioning -->
+    <section class="section section-alt" id="architecture">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Architecture &amp; Meta Positioning</h2>
+                <p>Full transparency on how SRLINES operates as a SaaS platform built on Meta's official WhatsApp Cloud API</p>
+            </div>
+            <div class="architecture-grid">
+                <div class="arch-card">
+                    <h4><i class="fas fa-sitemap"></i> Platform Architecture</h4>
+                    <p>SRLINES wCRM is a <strong>SaaS platform built directly on Meta's official WhatsApp Cloud API</strong>. We are not a BSP (Business Solution Provider) or a reseller. Our platform connects directly to Meta's Graph API endpoints, ensuring zero middleware latency and full API compliance.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Direct integration with Meta Graph API v21.0+</li>
+                        <li><i class="fas fa-check-circle"></i> Node.js backend with enterprise-grade infrastructure</li>
+                        <li><i class="fas fa-check-circle"></i> Real-time webhooks for message delivery &amp; status</li>
+                        <li><i class="fas fa-check-circle"></i> Hosted on secure cloud infrastructure with 99.9% uptime</li>
+                    </ul>
+                </div>
+                <div class="arch-card">
+                    <h4><i class="fas fa-shield-alt"></i> WABA Ownership</h4>
+                    <p>Each client owns their own <strong>WhatsApp Business Account (WABA)</strong> registered under their Meta Business Manager. SRLINES never owns, controls, or has admin access to client WABAs. Clients retain full ownership and portability of their phone numbers and message templates.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Client-owned WABA under their own Meta Business Manager</li>
+                        <li><i class="fas fa-check-circle"></i> Full phone number portability &amp; data ownership</li>
+                        <li><i class="fas fa-check-circle"></i> Client-managed message templates &amp; approvals</li>
+                        <li><i class="fas fa-check-circle"></i> No vendor lock-in &mdash; migrate anytime</li>
+                    </ul>
+                </div>
+                <div class="arch-card">
+                    <h4><i class="fas fa-file-invoice-dollar"></i> Billing &amp; Payment Flow</h4>
+                    <p><strong>All WhatsApp conversation charges are billed directly by Meta</strong> to the client's Meta Business Manager payment method. SRLINES only charges a SaaS platform subscription fee for access to wCRM features (CRM, chatbot, broadcast, integrations). There are no hidden markup fees on Meta's messaging costs.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Meta bills conversation charges directly to client</li>
+                        <li><i class="fas fa-check-circle"></i> SRLINES charges only SaaS subscription fees</li>
+                        <li><i class="fas fa-check-circle"></i> No markup on Meta's per-conversation pricing</li>
+                        <li><i class="fas fa-check-circle"></i> Transparent pricing with no hidden costs</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="arch-flow">
+                <h4><i class="fas fa-project-diagram"></i> How It Works &mdash; End-to-End Flow</h4>
+                <div class="flow-steps">
+                    <div class="flow-step"><i class="fas fa-building"></i> Client's Meta Business Manager</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fab fa-meta"></i> Meta WhatsApp Cloud API</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fas fa-cloud"></i> SRLINES wCRM SaaS Platform</div>
+                    <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
+                    <div class="flow-step"><i class="fab fa-whatsapp"></i> End Customer on WhatsApp</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Products -->
-    <section class="section section-alt" id="products">
+    <section class="section" id="products">
         <div class="container">
             <div class="section-title">
                 <h2>Our Products &amp; Solutions</h2>
@@ -930,6 +1074,347 @@
         </div>
     </section>
 
+    <!-- Case Studies -->
+    <section class="section section-alt" id="case-studies">
+        <div class="container">
+            <div class="section-title">
+                <h2>Real Client Case Studies</h2>
+                <p>How Pakistan's leading businesses use SRLINES wCRM to transform their WhatsApp customer engagement</p>
+            </div>
+            <div class="case-studies-grid">
+                <!-- REBC -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <h4>REBC (Real Estate Builders &amp; Consultants)</h4>
+                        <span class="case-industry"><i class="fas fa-building"></i> Real Estate</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-challenge">
+                            <h5>Challenge</h5>
+                            <p>REBC needed a scalable way to send property updates and follow up with leads across multiple real estate projects, replacing manual WhatsApp messaging that consumed hours daily.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h5>Solution</h5>
+                            <p>Deployed wCRM broadcast campaigns with segmented contact lists, AI chatbot for 24/7 property inquiries, and automated follow-up sequences for lead nurturing.</p>
+                        </div>
+                        <div class="case-results">
+                            <h5>Results</h5>
+                            <div class="case-metrics">
+                                <div class="case-metric"><div class="metric-value">3x</div><div class="metric-label">Lead Response Rate</div></div>
+                                <div class="case-metric"><div class="metric-value">70%</div><div class="metric-label">Time Saved</div></div>
+                                <div class="case-metric"><div class="metric-value">500+</div><div class="metric-label">Leads Managed</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <a href="https://rebc.com.pk/" target="_blank">Visit rebc.com.pk <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Al Baraka Enterprises -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <h4>Al Baraka Enterprises</h4>
+                        <span class="case-industry"><i class="fas fa-industry"></i> Trading &amp; Distribution</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-challenge">
+                            <h5>Challenge</h5>
+                            <p>Al Baraka Enterprises required an automated order notification system to keep B2B clients updated on order status, invoices, and delivery confirmations via WhatsApp.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h5>Solution</h5>
+                            <p>Integrated wCRM with their order management workflow using template messages for order confirmations, dispatch alerts, and delivery notifications with automated status tracking.</p>
+                        </div>
+                        <div class="case-results">
+                            <h5>Results</h5>
+                            <div class="case-metrics">
+                                <div class="case-metric"><div class="metric-value">95%</div><div class="metric-label">Delivery Rate</div></div>
+                                <div class="case-metric"><div class="metric-value">60%</div><div class="metric-label">Fewer Support Calls</div></div>
+                                <div class="case-metric"><div class="metric-value">2x</div><div class="metric-label">Client Satisfaction</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <a href="https://albarakaent.com/" target="_blank">Visit albarakaent.com <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- BLXCK -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <h4>BLXCK</h4>
+                        <span class="case-industry"><i class="fas fa-tshirt"></i> Fashion &amp; E-Commerce</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-challenge">
+                            <h5>Challenge</h5>
+                            <p>BLXCK, a premium streetwear brand, needed to automate order confirmations, abandoned cart recovery, and product launch announcements to their fashion-forward customer base.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h5>Solution</h5>
+                            <p>Implemented wCRM with Shopify integration for automated order notifications, broadcast campaigns for new collection launches, and AI chatbot for size/availability inquiries.</p>
+                        </div>
+                        <div class="case-results">
+                            <h5>Results</h5>
+                            <div class="case-metrics">
+                                <div class="case-metric"><div class="metric-value">40%</div><div class="metric-label">Cart Recovery</div></div>
+                                <div class="case-metric"><div class="metric-value">5x</div><div class="metric-label">Engagement Rate</div></div>
+                                <div class="case-metric"><div class="metric-value">85%</div><div class="metric-label">Open Rate</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <a href="https://blxck.pk/" target="_blank">Visit blxck.pk <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Clopal -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <h4>Clopal</h4>
+                        <span class="case-industry"><i class="fas fa-bolt"></i> Electrical &amp; Electronics Manufacturing</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-challenge">
+                            <h5>Challenge</h5>
+                            <p>Clopal, a leading electrical products manufacturer in Pakistan, needed to streamline dealer communication and provide instant product catalog access to their nationwide distributor network.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h5>Solution</h5>
+                            <p>Deployed wCRM for bulk dealer communication via broadcast campaigns, template chatbot for product specification queries, and automated price list distribution across their B2B network.</p>
+                        </div>
+                        <div class="case-results">
+                            <h5>Results</h5>
+                            <div class="case-metrics">
+                                <div class="case-metric"><div class="metric-value">1000+</div><div class="metric-label">Dealers Reached</div></div>
+                                <div class="case-metric"><div class="metric-value">80%</div><div class="metric-label">Faster Updates</div></div>
+                                <div class="case-metric"><div class="metric-value">50%</div><div class="metric-label">Cost Reduced</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <a href="https://clopal.com/" target="_blank">Visit clopal.com <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Ecoscapers -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <h4>Ecoscapers</h4>
+                        <span class="case-industry"><i class="fas fa-leaf"></i> Landscaping &amp; Green Solutions</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-challenge">
+                            <h5>Challenge</h5>
+                            <p>Ecoscapers needed to manage landscaping project inquiries, send quotation follow-ups, and share project progress updates with clients efficiently through WhatsApp.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h5>Solution</h5>
+                            <p>Utilized wCRM unified inbox for managing all client conversations, AI chatbot for initial inquiry handling, and broadcast campaigns for seasonal service promotions and project updates.</p>
+                        </div>
+                        <div class="case-results">
+                            <h5>Results</h5>
+                            <div class="case-metrics">
+                                <div class="case-metric"><div class="metric-value">4x</div><div class="metric-label">Inquiry Handling</div></div>
+                                <div class="case-metric"><div class="metric-value">90%</div><div class="metric-label">Response Rate</div></div>
+                                <div class="case-metric"><div class="metric-value">35%</div><div class="metric-label">More Conversions</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <a href="https://ecoscapers.pk/" target="_blank">Visit ecoscapers.pk <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- TotalLink -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <h4>TotalLink</h4>
+                        <span class="case-industry"><i class="fas fa-network-wired"></i> IT &amp; Telecom Solutions</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-challenge">
+                            <h5>Challenge</h5>
+                            <p>TotalLink, an IT and telecom solutions provider, required automated service ticket notifications, client onboarding messages, and technical support automation via WhatsApp.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h5>Solution</h5>
+                            <p>Integrated wCRM with their support system using n8n workflow automation for ticket updates, template messages for onboarding sequences, and AI chatbot for tier-1 technical queries.</p>
+                        </div>
+                        <div class="case-results">
+                            <h5>Results</h5>
+                            <div class="case-metrics">
+                                <div class="case-metric"><div class="metric-value">65%</div><div class="metric-label">Faster Resolution</div></div>
+                                <div class="case-metric"><div class="metric-value">3x</div><div class="metric-label">Support Capacity</div></div>
+                                <div class="case-metric"><div class="metric-value">98%</div><div class="metric-label">Uptime SLA</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <a href="https://totallink.com.pk/" target="_blank">Visit totallink.com.pk <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews -->
+    <section class="section" id="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Verified reviews from our Google Business Profile</p>
+            </div>
+            <div class="reviews-header">
+                <div class="reviews-summary">
+                    <div class="reviews-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-weight: 700; color: var(--dark);">5.0 Rating on Google</p>
+                    <a href="https://share.google/dDpuHAwplSaKWMvGf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.9rem;"><i class="fab fa-google"></i> View All Reviews on Google</a>
+                </div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="review-avatar">R</div>
+                        <div class="review-info">
+                            <h5>REBC Real Estate</h5>
+                            <span class="review-date">Verified Client</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>Excellent WhatsApp API platform! SRLINES helped us automate our entire lead management system. The broadcast campaigns are incredibly effective for property updates. Highly recommended for any real estate business.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="review-avatar">C</div>
+                        <div class="review-info">
+                            <h5>Clopal Electronics</h5>
+                            <span class="review-date">Verified Client</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>We've been using wCRM for our dealer communication across Pakistan. The platform is reliable, affordable, and the support team is very responsive. A game changer for our B2B operations.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="review-avatar">B</div>
+                        <div class="review-info">
+                            <h5>BLXCK Streetwear</h5>
+                            <span class="review-date">Verified Client</span>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>The Shopify integration is seamless. Our order notifications and abandoned cart recovery through WhatsApp have significantly boosted our sales. The AI chatbot handles most customer queries automatically.</p>
+                </div>
+            </div>
+            <div class="google-review-btn">
+                <a href="https://share.google/dDpuHAwplSaKWMvGf" class="btn btn-primary" target="_blank" style="color: var(--dark);"><i class="fab fa-google" style="color: #4285F4;"></i> View All Google Reviews</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal & Compliance -->
+    <section class="section section-alt" id="compliance">
+        <div class="container">
+            <div class="section-title">
+                <h2>Legal &amp; Compliance</h2>
+                <p>Enterprise-grade legal framework ensuring full regulatory and platform compliance</p>
+            </div>
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <h4><i class="fas fa-landmark"></i> SECP Registration</h4>
+                    <p>SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED is registered with the Securities and Exchange Commission of Pakistan (SECP). Our registration is publicly verifiable through the SECP eServices portal.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Company Registration Number verifiable on SECP</li>
+                        <li><i class="fas fa-check-circle"></i> SMC-Private Limited company structure</li>
+                        <li><i class="fas fa-check-circle"></i> Annual compliance filings up to date</li>
+                    </ul>
+                    <a href="https://eservices.secp.gov.pk/eServices/" target="_blank"><i class="fas fa-external-link-alt"></i> Verify on SECP Portal</a>
+                </div>
+                <div class="compliance-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Registered Address</h4>
+                    <p>Our registered office is located in Haripur, Khyber Pakhtunkhwa, Pakistan. We maintain a physical presence for all legal and business correspondence.</p>
+                    <p><strong>SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED</strong><br>
+                    Haripur, Khyber Pakhtunkhwa, Pakistan</p>
+                    <a href="https://share.google/dDpuHAwplSaKWMvGf" target="_blank"><i class="fab fa-google"></i> View on Google Business Profile</a>
+                </div>
+                <div class="compliance-card">
+                    <h4><i class="fas fa-file-contract"></i> Data Processing Agreement (DPA)</h4>
+                    <p>We offer a comprehensive Data Processing Agreement to all enterprise clients, covering data handling, storage, processing, and transfer obligations in accordance with international data protection standards.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> GDPR-aligned data processing clauses</li>
+                        <li><i class="fas fa-check-circle"></i> Data subject rights &amp; obligations defined</li>
+                        <li><i class="fas fa-check-circle"></i> Sub-processor transparency</li>
+                        <li><i class="fas fa-check-circle"></i> Data breach notification procedures</li>
+                    </ul>
+                    <a href="mailto:contact@srlines.net?subject=DPA%20Request"><i class="fas fa-envelope"></i> Request DPA</a>
+                </div>
+                <div class="compliance-card">
+                    <h4><i class="fas fa-user-shield"></i> Privacy &amp; Data Protection</h4>
+                    <p>Our privacy policy follows GDPR-style language and covers all aspects of data collection, processing, storage, and user rights. We are committed to protecting your personal and business data.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> GDPR-style privacy language</li>
+                        <li><i class="fas fa-check-circle"></i> Clear data retention policies</li>
+                        <li><i class="fas fa-check-circle"></i> Right to access, correction &amp; deletion</li>
+                        <li><i class="fas fa-check-circle"></i> Cookie &amp; tracking transparency</li>
+                    </ul>
+                    <a href="privacy.html"><i class="fas fa-file-alt"></i> View Privacy Policy</a>
+                </div>
+                <div class="compliance-card">
+                    <h4><i class="fab fa-whatsapp"></i> WhatsApp Policy Compliance</h4>
+                    <p>SRLINES strictly adheres to Meta's WhatsApp Business Platform policies and Commerce Policy. All messaging through our platform follows Meta's guidelines for business messaging.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Meta Business Messaging Policy compliant</li>
+                        <li><i class="fas fa-check-circle"></i> WhatsApp Commerce Policy adherence</li>
+                        <li><i class="fas fa-check-circle"></i> 24-hour messaging window enforcement</li>
+                        <li><i class="fas fa-check-circle"></i> Template message review &amp; approval process</li>
+                    </ul>
+                </div>
+                <div class="compliance-card">
+                    <h4><i class="fas fa-ban"></i> Anti-Spam &amp; Opt-In Policy</h4>
+                    <p>We enforce strict anti-spam measures and require proper opt-in consent for all WhatsApp messaging. Our platform includes built-in compliance tools to maintain message quality.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Mandatory opt-in before messaging</li>
+                        <li><i class="fas fa-check-circle"></i> Easy opt-out mechanism for recipients</li>
+                        <li><i class="fas fa-check-circle"></i> Rate limiting &amp; throttling controls</li>
+                        <li><i class="fas fa-check-circle"></i> Message quality score monitoring</li>
+                        <li><i class="fas fa-check-circle"></i> Spam complaint resolution workflow</li>
+                    </ul>
+                </div>
+                <div class="compliance-card">
+                    <h4><i class="fas fa-gavel"></i> Terms of Service</h4>
+                    <p>Our enterprise-grade Terms of Service clearly define the obligations, rights, and responsibilities of both SRLINES and its clients. Designed for enterprise procurement review.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Service Level Agreement (SLA) terms</li>
+                        <li><i class="fas fa-check-circle"></i> Limitation of liability clauses</li>
+                        <li><i class="fas fa-check-circle"></i> Intellectual property rights</li>
+                        <li><i class="fas fa-check-circle"></i> Termination &amp; refund policies</li>
+                    </ul>
+                    <a href="terms.html"><i class="fas fa-file-alt"></i> View Terms of Service</a>
+                </div>
+                <div class="compliance-card">
+                    <h4><i class="fas fa-graduation-cap"></i> Message Quality Education</h4>
+                    <p>We actively educate our clients on WhatsApp messaging best practices to maintain high quality scores and avoid account restrictions.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Onboarding quality training for all new clients</li>
+                        <li><i class="fas fa-check-circle"></i> Template message best practices guide</li>
+                        <li><i class="fas fa-check-circle"></i> Quality rating monitoring &amp; alerts</li>
+                        <li><i class="fas fa-check-circle"></i> Content guidelines for broadcast campaigns</li>
+                        <li><i class="fas fa-check-circle"></i> Frequency capping recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Highlights -->
     <section class="section section-alt" id="highlights">
         <div class="container">
@@ -1041,6 +1526,15 @@
                     <h4>WhatsApp</h4>
                     <p><a href="https://wa.me/923339776136" target="_blank">Chat with us</a></p>
                 </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>Office Address</h4>
+                    <p>Haripur, Khyber Pakhtunkhwa, Pakistan</p>
+                    <p style="margin-top: 8px;"><a href="https://share.google/dDpuHAwplSaKWMvGf" target="_blank"><i class="fab fa-google"></i> Google Business Profile</a></p>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106717.94767498074!2d72.8715!3d33.9946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df98663e4aed1b%3A0x2b5a45c6ac80c6d8!2sHaripur%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -1058,6 +1552,7 @@
                         <a href="https://www.npmjs.com/package/n8n-nodes-wcrm" target="_blank" aria-label="npm"><i class="fab fa-npm"></i></a>
                         <a href="https://wa.me/923339776136" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="mailto:contact@srlines.net" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://share.google/dDpuHAwplSaKWMvGf" target="_blank" aria-label="Google Business"><i class="fab fa-google"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1077,23 +1572,32 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="#about">About Us</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#reviews">Client Reviews</a></li>
                         <li><a href="#expertise">Our Expertise</a></li>
                         <li><a href="#ceo">Our Founder</a></li>
                         <li><a href="#careers">Careers</a></li>
                         <li><a href="https://n8n.io/creators/srlinessoftwarehouse" target="_blank">n8n Creator Profile</a></li>
+                        <li><a href="https://share.google/dDpuHAwplSaKWMvGf" target="_blank">Google Business Profile</a></li>
                     </ul>
                 </div>
                 <div class="footer-col" id="privacy">
-                    <h4>Legal</h4>
+                    <h4>Legal &amp; Compliance</h4>
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li id="terms"><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="#compliance">Compliance &amp; DPA</a></li>
+                        <li><a href="#compliance">Anti-Spam Policy</a></li>
+                        <li><a href="#compliance">Opt-In Guidelines</a></li>
+                        <li><a href="#compliance">WhatsApp Policy Compliance</a></li>
+                        <li><a href="Meta Tech Provider Certificate.pdf" target="_blank">Meta Partner Certificate</a></li>
                         <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024&ndash;2025 SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED. All Rights Reserved.</p>
+                <p>&copy; 2024&ndash;2026 SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED. All Rights Reserved. SECP Registered | Meta Verified Technology Partner</p>
             </div>
         </div>
     </footer>
