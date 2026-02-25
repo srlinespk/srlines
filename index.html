@@ -3,13 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRLINES SOFTWARE HOUSE | Meta Verified Technology Partner | Node.js, React, Vue Experts</title>
-    <meta name="description" content="SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED - SECP Registered, Meta Verified Technology Partner & Coursera Certified. Expert in Node.js, React, Vue, Mobile Apps, WhatsApp CRM & eCommerce Solutions.">
+    <title>SRLINES - Pakistan's #1 WhatsApp Cloud API Platform | Meta Verified Technology Partner</title>
+    <meta name="description" content="SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED - Pakistan's #1 WhatsApp Cloud API Platform. Meta Verified Technology Partner offering affordable wCRM, AI Chatbot, Broadcast Campaigns, Shopify & WooCommerce integrations.">
+    <meta name="keywords" content="WhatsApp Cloud API, WhatsApp CRM Pakistan, wCRM, Meta Cloud API, WhatsApp Business API, AI Chatbot, Broadcast Campaigns, Shopify WhatsApp, WooCommerce WhatsApp, n8n WhatsApp, SRLINES, WhatsApp automation Pakistan">
+    <link rel="canonical" href="https://srlines.net/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://srlines.net/">
+    <meta property="og:title" content="SRLINES - Pakistan's #1 WhatsApp Cloud API Platform">
+    <meta property="og:description" content="Affordable WhatsApp Cloud API solutions for businesses. AI Chatbot, Broadcast Campaigns, Unified Inbox, Shopify & WooCommerce integrations. Meta Verified Technology Partner.">
+    <meta property="og:image" content="https://srlines.net/Grow%20Sales%20with%20WhatsApp%20CRM%20%26%20Live%20Chat.png">
+    <meta property="og:site_name" content="SRLINES SOFTWARE HOUSE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SRLINES - Pakistan's #1 WhatsApp Cloud API Platform">
+    <meta name="twitter:description" content="Affordable WhatsApp Cloud API solutions for businesses. AI Chatbot, Broadcast Campaigns, Unified Inbox & more. Meta Verified Technology Partner.">
+    <meta name="twitter:image" content="https://srlines.net/Grow%20Sales%20with%20WhatsApp%20CRM%20%26%20Live%20Chat.png">
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED",
+        "url": "https://srlines.net",
+        "logo": "https://srlines.net/logo.png",
+        "description": "Pakistan's #1 WhatsApp Cloud API Platform. Meta Verified Technology Partner offering affordable wCRM solutions.",
+        "founder": {
+            "@type": "Person",
+            "name": "Mr. Shahid Rasool",
+            "jobTitle": "CEO & Founder"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+92-333-9776136",
+            "contactType": "customer service",
+            "email": "contact@srlines.net"
+        },
+        "sameAs": [
+            "https://github.com/AiSRLINES",
+            "https://www.npmjs.com/package/n8n-nodes-wcrm",
+            "https://n8n.io/creators/srlinessoftwarehouse",
+            "https://apps.shopify.com/wcrm",
+            "https://play.google.com/store/apps/details?id=com.wcrm.app"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "wCRM - WhatsApp Cloud API CRM",
+        "url": "https://crm.srlines.net",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Android",
+        "description": "Affordable WhatsApp Cloud API CRM platform with AI Chatbot, Broadcast Campaigns, Unified Inbox, Shopify & WooCommerce integrations.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free tier available"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "SRLINES SOFTWARE HOUSE"
+        }
+    }
+    </script>
+
     <style>
         :root {
             --primary: #6366f1;
@@ -27,9 +96,9 @@
             --danger: #ef4444;
             --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         }
-        
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
             font-family: 'Inter', 'Poppins', sans-serif;
             color: var(--dark);
@@ -37,9 +106,9 @@
             background-color: #ffffff;
             overflow-x: hidden;
         }
-        
+
         .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        
+
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -51,14 +120,14 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
-        
+
         header.scrolled { padding: 12px 0; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12); }
-        
+
         .header-container { display: flex; justify-content: space-between; align-items: center; }
-        
+
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-img { height: 48px; width: auto; border-radius: 8px; }
-        
+
         .logo-text h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.3rem;
@@ -68,17 +137,17 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .logo-text p { font-size: 0.65rem; color: var(--gray); font-weight: 600; text-transform: uppercase; }
-        
+
         nav ul { display: flex; list-style: none; gap: 28px; }
         nav a { color: var(--dark); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; padding: 8px 0; position: relative; }
         nav a:hover { color: var(--primary); }
         nav a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 0; background: var(--gradient-hero); transition: width 0.3s ease; border-radius: 2px; }
         nav a:hover::after { width: 100%; }
-        
+
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--dark); font-size: 1.5rem; cursor: pointer; z-index: 1001; }
-        
+
         .mobile-menu {
             display: none;
             position: fixed;
@@ -94,14 +163,14 @@
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
-        
+
         .mobile-menu.active { transform: translateX(0); }
         .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 24px; }
         .mobile-menu a { color: var(--dark); text-decoration: none; font-size: 1.1rem; font-weight: 600; display: block; padding: 12px 0; border-bottom: 1px solid var(--gray-light); }
-        
+
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 999; backdrop-filter: blur(4px); }
         .overlay.active { display: block; }
-        
+
         .hero {
             padding: 160px 0 100px;
             background: var(--gradient-hero);
@@ -109,7 +178,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -117,11 +186,11 @@
             background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)" /></svg>');
             opacity: 0.3;
         }
-        
+
         .hero-content { position: relative; z-index: 1; text-align: center; }
-        
+
         .hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
-        
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -134,15 +203,15 @@
             font-weight: 600;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .hero-badge i { color: #fbbf24; }
-        
+
         .hero h1 { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 900; margin-bottom: 24px; line-height: 1.2; }
         .hero .highlight { background: linear-gradient(to right, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; opacity: 0.95; line-height: 1.8; }
-        
+
         .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -157,7 +226,7 @@
             border: none;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
         }
-        
+
         .btn-primary { background: white; color: var(--primary); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); }
         .btn-secondary { background: rgba(255, 255, 255, 0.15); color: white; border: 2px solid white; }
@@ -166,24 +235,53 @@
         .btn-gradient:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4); }
         .btn-success { background: var(--secondary); color: white; }
         .btn-success:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); }
-        
+
         .trust-badges { display: flex; justify-content: center; gap: 30px; margin-top: 50px; flex-wrap: wrap; }
         .trust-badge { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 12px 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); }
         .trust-badge i { font-size: 1.5rem; color: #fbbf24; }
         .trust-badge-text { text-align: left; }
         .trust-badge-text .label { font-size: 0.7rem; opacity: 0.8; text-transform: uppercase; }
         .trust-badge-text .value { font-size: 1rem; font-weight: 700; }
-        
+
+        /* Partners Section */
+        .partners-section { padding: 60px 0; background: var(--light); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .partners-section .section-title { margin-bottom: 36px; }
+        .partners-section .section-title h2 { font-size: 1.6rem; }
+        .partners-grid { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+        .partner-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px 24px;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid rgba(0,0,0,0.06);
+            min-width: 120px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .partner-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(99,102,241,0.12); }
+        .partner-card i {
+            font-size: 2rem;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+        .partner-card:hover i { filter: grayscale(0%); opacity: 1; }
+        .partner-card span { font-size: 0.75rem; font-weight: 600; color: var(--gray); text-align: center; }
+        .partner-card:hover span { color: var(--dark); }
+
         .section { padding: 100px 0; }
         .section-alt { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
         .section-dark { background: var(--dark); color: white; }
-        
+
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 800; background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; }
         .section-title p { color: var(--gray); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
         .section-dark .section-title h2 { background: linear-gradient(to right, white, var(--gray-light)); -webkit-background-clip: text; }
         .section-dark .section-title p { color: rgba(255, 255, 255, 0.8); }
-        
+
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .about-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: var(--dark); }
         .about-content p { color: var(--gray); margin-bottom: 16px; line-height: 1.8; }
@@ -191,7 +289,7 @@
         .about-feature { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--light); border-radius: 12px; }
         .about-feature i { color: var(--primary); font-size: 1.3rem; }
         .about-feature span { font-weight: 600; color: var(--dark); }
-        
+
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
         .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.4s ease; border: 1px solid rgba(0, 0, 0, 0.05); }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15); }
@@ -208,14 +306,43 @@
         .product-cta { display: block; text-align: center; padding: 12px 20px; background: var(--gradient-hero); color: white; text-decoration: none; border-radius: 10px; font-weight: 700; transition: all 0.3s ease; }
         .product-cta:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3); }
         .product-badge { position: absolute; top: 16px; right: 16px; background: #fbbf24; color: var(--dark); padding: 5px 14px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-        
+
+        /* Features Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .feature-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99,102,241,0.15); }
+        .feature-emoji { font-size: 2rem; flex-shrink: 0; }
+        .feature-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+        .feature-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+
+        /* n8n Section */
+        .n8n-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .n8n-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: var(--dark); }
+        .n8n-content p { color: var(--gray); margin-bottom: 16px; line-height: 1.8; }
+        .n8n-capabilities { list-style: none; margin: 24px 0; }
+        .n8n-capabilities li { padding: 10px 0; display: flex; align-items: center; gap: 12px; color: var(--dark-alt); font-size: 0.95rem; }
+        .n8n-capabilities i { color: var(--success); font-size: 1.1rem; }
+        .n8n-install { background: var(--dark); color: #e2e8f0; padding: 20px 24px; border-radius: 12px; font-family: monospace; font-size: 0.9rem; margin: 20px 0; overflow-x: auto; }
+        .n8n-install code { color: var(--secondary); }
+        .n8n-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
         .expertise-card { background: white; padding: 32px; border-radius: 16px; text-align: center; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; border: 1px solid rgba(0, 0, 0, 0.05); }
         .expertise-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15); }
         .expertise-icon { width: 70px; height: 70px; background: var(--gradient-hero); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; margin: 0 auto 20px; }
         .expertise-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
         .expertise-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
-        
+
         .ceo-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
         .ceo-image-wrapper { position: relative; }
         .ceo-image { width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); object-fit: cover; }
@@ -230,7 +357,7 @@
         .ceo-contact-item i { color: var(--primary); font-size: 1.1rem; width: 24px; }
         .ceo-contact-item a { color: var(--dark); text-decoration: none; }
         .ceo-contact-item a:hover { color: var(--primary); }
-        
+
         .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .highlight-card { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
         .highlight-card:hover { transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15); }
@@ -239,7 +366,7 @@
         .highlight-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 24px; color: white; }
         .highlight-overlay h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
         .highlight-overlay p { font-size: 0.85rem; opacity: 0.9; }
-        
+
         .careers-content { text-align: center; max-width: 800px; margin: 0 auto; }
         .careers-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
         .careers-content p { margin-bottom: 16px; opacity: 0.9; line-height: 1.8; }
@@ -247,7 +374,7 @@
         .perk { text-align: center; }
         .perk i { font-size: 2.5rem; color: #fbbf24; margin-bottom: 12px; }
         .perk h4 { font-size: 1rem; font-weight: 700; }
-        
+
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .contact-card { background: rgba(255, 255, 255, 0.05); padding: 32px; border-radius: 16px; text-align: center; }
         .contact-icon { width: 64px; height: 64px; background: var(--gradient-hero); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin: 0 auto 20px; }
@@ -255,7 +382,7 @@
         .contact-card p { opacity: 0.8; }
         .contact-card a { color: white; text-decoration: none; }
         .contact-card a:hover { text-decoration: underline; }
-        
+
         footer { background: var(--dark-alt); color: white; padding: 60px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-col h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
@@ -264,15 +391,18 @@
         .footer-col ul li { margin-bottom: 10px; }
         .footer-col ul li a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s ease; font-size: 0.95rem; }
         .footer-col ul li a:hover { color: white; padding-left: 5px; }
+        .footer-social { display: flex; gap: 12px; margin-top: 16px; }
+        .footer-social a { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; font-size: 1.1rem; }
+        .footer-social a:hover { background: var(--primary); color: white; transform: translateY(-2px); }
         .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); opacity: 0.7; font-size: 0.9rem; }
-        
+
         @media (max-width: 992px) {
-            .about-grid, .ceo-container { grid-template-columns: 1fr; }
+            .about-grid, .ceo-container, .n8n-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
             .hero h1 { font-size: 2.2rem; }
             .highlights-grid { grid-template-columns: 1fr; }
         }
-        
+
         @media (max-width: 768px) {
             nav ul { display: none; }
             .mobile-menu-btn { display: block; }
@@ -284,8 +414,11 @@
             .section-title h2 { font-size: 2rem; }
             .section { padding: 70px 0; }
             .about-features { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .partners-grid { gap: 16px; }
+            .partner-card { min-width: 100px; padding: 16px; }
         }
-        
+
         @media (max-width: 576px) {
             .logo-text h1 { font-size: 1rem; }
             .logo-img { height: 40px; }
@@ -309,12 +442,12 @@
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#n8n">n8n</a></li>
                     <li><a href="#expertise">Expertise</a></li>
                     <li><a href="#ceo">Founder</a></li>
                     <li><a href="#careers">Careers</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#privacy">Privacy</a></li>
-                    <li><a href="#terms">Terms</a></li>
                 </ul>
             </nav>
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
@@ -328,12 +461,12 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#products">Products</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#n8n">n8n</a></li>
             <li><a href="#expertise">Expertise</a></li>
             <li><a href="#ceo">Founder</a></li>
             <li><a href="#careers">Careers</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#privacy">Privacy</a></li>
-            <li><a href="#terms">Terms</a></li>
         </ul>
     </div>
 
@@ -342,114 +475,387 @@
             <div class="hero-content">
                 <div class="hero-badges">
                     <div class="hero-badge"><i class="fab fa-meta"></i> Meta Verified Partner</div>
-                    <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Coursera Certified</div>
                     <div class="hero-badge"><i class="fas fa-building"></i> SECP Registered</div>
+                    <div class="hero-badge"><i class="fas fa-tag"></i> Most Affordable Pricing</div>
                 </div>
-                <h1>Building <span class="highlight">Digital Excellence</span><br>For Global Businesses</h1>
-                <p>SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED is an established IT company providing freelancing services to national and international clients. We specialize in Node.js, React, Vue, mobile applications, WhatsApp automation, and eCommerce solutions.</p>
+                <h1>Pakistan's #1 <span class="highlight">WhatsApp Cloud API</span><br>Platform for Businesses</h1>
+                <p>Empower your business with enterprise-grade WhatsApp Cloud API solutions at the most affordable pricing in Pakistan. AI Chatbot, Broadcast Campaigns, Unified Inbox, Shopify &amp; WooCommerce integrations &mdash; all in one platform.</p>
                 <div class="cta-buttons">
-                    <a href="https://wa.me/923339776136" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Contact Us</a>
-                    <a href="#products" class="btn btn-secondary"><i class="fas fa-rocket"></i> Our Products</a>
-                    <a href="#careers" class="btn btn-gradient"><i class="fas fa-users"></i> Join Our Team</a>
+                    <a href="https://crm.srlines.net" class="btn btn-primary" target="_blank"><i class="fas fa-rocket"></i> Start Free Trial</a>
+                    <a href="#products" class="btn btn-secondary"><i class="fas fa-th-large"></i> Explore Products</a>
+                    <a href="https://wa.me/923339776136" class="btn btn-gradient" target="_blank"><i class="fab fa-whatsapp"></i> Talk to Sales</a>
                 </div>
                 <div class="trust-badges">
-                    <div class="trust-badge"><i class="fas fa-users"></i><div class="trust-badge-text"><div class="label">Clients</div><div class="value">Growing Daily</div></div></div>
-                    <div class="trust-badge"><i class="fas fa-globe"></i><div class="trust-badge-text"><div class="label">Reach</div><div class="value">National & International</div></div></div>
-                    <div class="trust-badge"><i class="fas fa-star"></i><div class="trust-badge-text"><div class="label">Quality</div><div class="value">Premium Solutions</div></div></div>
+                    <div class="trust-badge"><i class="fas fa-building"></i><div class="trust-badge-text"><div class="label">Businesses</div><div class="value">500+</div></div></div>
+                    <div class="trust-badge"><i class="fas fa-paper-plane"></i><div class="trust-badge-text"><div class="label">Messages Sent</div><div class="value">10M+</div></div></div>
+                    <div class="trust-badge"><i class="fas fa-robot"></i><div class="trust-badge-text"><div class="label">Chatbot Sessions</div><div class="value">1M+</div></div></div>
+                    <div class="trust-badge"><i class="fas fa-star"></i><div class="trust-badge-text"><div class="label">Uptime</div><div class="value">99.9%</div></div></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Partnerships & Associations -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trusted By Industry Leaders</h2>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <i class="fab fa-meta" style="color: #0081FB;"></i>
+                    <span>Technology Partner</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fab fa-shopify" style="color: #96BF48;"></i>
+                    <span>App Partner</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fab fa-wordpress" style="color: #21759B;"></i>
+                    <span>WooCommerce Plugin</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-circle-nodes" style="color: #EA4B71;"></i>
+                    <span>n8n Community Node</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fab fa-npm" style="color: #CB3837;"></i>
+                    <span>Published Package</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fab fa-github" style="color: #181717;"></i>
+                    <span>Open Source</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fab fa-google-play" style="color: #414141;"></i>
+                    <span>Android App</span>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-university" style="color: #C8102E;"></i>
+                    <span>Bank Alfalah Gateway</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
     <section class="section" id="about">
         <div class="container">
             <div class="section-title">
                 <h2>About Our Company</h2>
-                <p>A trusted technology partner delivering innovative solutions worldwide</p>
+                <p>Pakistan's leading Meta Cloud API solutions provider, trusted by 500+ businesses nationwide</p>
             </div>
             <div class="about-grid">
                 <div class="about-content">
                     <h3>SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED</h3>
-                    <p>We are an established and well-known Information Technology company, officially registered by SECP (Securities and Exchange Commission of Pakistan). As a Meta Verified Technology Partner and Coursera Certified organization, we deliver premium quality software solutions.</p>
-                    <p>Our clientage base is growing day by day as we provide exceptional freelancing services to both national and international clients. We take pride in building long-term relationships with our clients through quality work and dedicated support.</p>
+                    <p>We are Pakistan's premier WhatsApp Cloud API solutions platform, officially registered by SECP (Securities and Exchange Commission of Pakistan) and recognized as a Meta Verified Technology Partner. Our wCRM platform powers 500+ businesses with enterprise-grade messaging infrastructure at the most affordable pricing.</p>
+                    <p>From AI-powered chatbots to broadcast campaigns, Shopify &amp; WooCommerce integrations, and a published n8n community node &mdash; our ecosystem enables businesses of all sizes to leverage WhatsApp as their primary customer engagement channel.</p>
                     <div class="about-features">
                         <div class="about-feature"><i class="fas fa-check-circle"></i><span>SECP Registered</span></div>
                         <div class="about-feature"><i class="fab fa-meta"></i><span>Meta Verified Partner</span></div>
-                        <div class="about-feature"><i class="fas fa-certificate"></i><span>Coursera Certified</span></div>
-                        <div class="about-feature"><i class="fas fa-globe"></i><span>Global Clientele</span></div>
+                        <div class="about-feature"><i class="fas fa-tag"></i><span>Most Affordable Pricing</span></div>
+                        <div class="about-feature"><i class="fas fa-globe"></i><span>500+ Businesses Served</span></div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="Grow Sales with WhatsApp CRM & Live Chat.png" alt="SRLINES Software Solutions" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+                    <img src="Grow Sales with WhatsApp CRM & Live Chat.png" alt="SRLINES wCRM Platform" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Products -->
     <section class="section section-alt" id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Our Products & Solutions</h2>
-                <p>Innovative products built to transform your business operations</p>
+                <h2>Our Products &amp; Solutions</h2>
+                <p>A complete ecosystem of WhatsApp Cloud API products built to scale your business</p>
             </div>
             <div class="products-grid">
+                <!-- wCRM Platform -->
                 <div class="product-card">
                     <div class="product-header">
                         <div class="product-icon"><i class="fab fa-whatsapp"></i></div>
-                        <h3>WhatsApp CRM</h3>
+                        <h3>wCRM Platform</h3>
                         <p class="subtitle">crm.srlines.net</p>
+                        <span class="product-badge">FLAGSHIP</span>
                     </div>
                     <div class="product-body">
                         <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> WhatsApp Automation</li>
-                            <li><i class="fas fa-check-circle"></i> Broadcasting Campaigns</li>
-                            <li><i class="fas fa-check-circle"></i> Inbox Management</li>
-                            <li><i class="fas fa-check-circle"></i> Team Collaboration</li>
-                            <li><i class="fas fa-check-circle"></i> AI Chatbot Integration</li>
+                            <li><i class="fas fa-check-circle"></i> AI Chatbot (OpenAI Powered)</li>
+                            <li><i class="fas fa-check-circle"></i> Template Chatbot Flows</li>
+                            <li><i class="fas fa-check-circle"></i> Unified Inbox Dashboard</li>
+                            <li><i class="fas fa-check-circle"></i> Tags, Notes &amp; Phone Book</li>
+                            <li><i class="fas fa-check-circle"></i> Broadcast Campaigns</li>
                         </ul>
-                        <a href="https://crm.srlines.net" class="product-cta" target="_blank">Explore CRM <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://crm.srlines.net" class="product-cta" target="_blank">Start Free Trial <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+                <!-- Catalogify.pk -->
                 <div class="product-card">
                     <div class="product-header">
                         <div class="product-icon"><i class="fas fa-shopping-bag"></i></div>
                         <h3>Catalogify.pk</h3>
-                        <p class="subtitle">Free Shopify Alternative</p>
+                        <p class="subtitle">Meta Commerce Catalog Manager</p>
                         <span class="product-badge">FREE</span>
                     </div>
                     <div class="product-body">
                         <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> Free eCommerce Platform</li>
-                            <li><i class="fas fa-check-circle"></i> Perfect for Small Budgets</li>
-                            <li><i class="fas fa-check-circle"></i> Easy Product Catalog</li>
-                            <li><i class="fas fa-check-circle"></i> WhatsApp Integration</li>
-                            <li><i class="fas fa-check-circle"></i> Mobile Optimized</li>
+                            <li><i class="fas fa-check-circle"></i> Meta Commerce Catalog Sync</li>
+                            <li><i class="fas fa-check-circle"></i> Shopify Alternative Storefront</li>
+                            <li><i class="fas fa-check-circle"></i> Mobile-Optimized Design</li>
+                            <li><i class="fas fa-check-circle"></i> WhatsApp Ordering Integration</li>
+                            <li><i class="fas fa-check-circle"></i> Easy Product Management</li>
                         </ul>
                         <a href="https://catalogify.pk" class="product-cta" target="_blank">Start Free <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+                <!-- wCRM Shopify App -->
                 <div class="product-card">
                     <div class="product-header">
                         <div class="product-icon"><i class="fab fa-shopify"></i></div>
-                        <h3>wCRM - Shopify App</h3>
-                        <p class="subtitle">Transactional Notifier</p>
+                        <h3>wCRM Shopify App</h3>
+                        <p class="subtitle">apps.shopify.com/wcrm</p>
                         <span class="product-badge">SHOPIFY</span>
                     </div>
                     <div class="product-body">
                         <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> WhatsApp Automations</li>
-                            <li><i class="fas fa-check-circle"></i> Order Notifications</li>
-                            <li><i class="fas fa-check-circle"></i> Shopify Integration</li>
-                            <li><i class="fas fa-check-circle"></i> Customer Updates</li>
-                            <li><i class="fas fa-check-circle"></i> Easy Setup</li>
+                            <li><i class="fas fa-check-circle"></i> Transactional WhatsApp Notifier</li>
+                            <li><i class="fas fa-check-circle"></i> Order Status Updates</li>
+                            <li><i class="fas fa-check-circle"></i> Abandoned Cart Recovery</li>
+                            <li><i class="fas fa-check-circle"></i> Auto Customer Sync</li>
+                            <li><i class="fas fa-check-circle"></i> One-Click Shopify Install</li>
                         </ul>
                         <a href="https://apps.shopify.com/wcrm" class="product-cta" target="_blank">View on Shopify <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- wCRM WooCommerce Plugin -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fab fa-wordpress"></i></div>
+                        <h3>wCRM WooCommerce Plugin</h3>
+                        <p class="subtitle">WordPress Integration</p>
+                        <span class="product-badge">WORDPRESS</span>
+                    </div>
+                    <div class="product-body">
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Order WhatsApp Notifications</li>
+                            <li><i class="fas fa-check-circle"></i> Chat Automation Flows</li>
+                            <li><i class="fas fa-check-circle"></i> WooCommerce Order Sync</li>
+                            <li><i class="fas fa-check-circle"></i> Customer Engagement Tools</li>
+                            <li><i class="fas fa-check-circle"></i> Easy WordPress Setup</li>
+                        </ul>
+                        <a href="https://crm.srlines.net" class="product-cta" target="_blank">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- wCRM Android App -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fab fa-google-play"></i></div>
+                        <h3>wCRM Android App</h3>
+                        <p class="subtitle">Mobile Business Management</p>
+                        <span class="product-badge">ANDROID</span>
+                    </div>
+                    <div class="product-body">
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Full CRM on Mobile</li>
+                            <li><i class="fas fa-check-circle"></i> Real-Time Chat Notifications</li>
+                            <li><i class="fas fa-check-circle"></i> Broadcast from Anywhere</li>
+                            <li><i class="fas fa-check-circle"></i> Contact &amp; Tag Management</li>
+                            <li><i class="fas fa-check-circle"></i> Lightweight &amp; Fast</li>
+                        </ul>
+                        <a href="https://play.google.com/store/apps/details?id=com.wcrm.app" class="product-cta" target="_blank">Get on Google Play <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- n8n Community Node -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fas fa-circle-nodes"></i></div>
+                        <h3>n8n Community Node</h3>
+                        <p class="subtitle">npmjs.com/package/n8n-nodes-wcrm</p>
+                        <span class="product-badge">NPM</span>
+                    </div>
+                    <div class="product-body">
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Connect WhatsApp to 400+ Apps</li>
+                            <li><i class="fas fa-check-circle"></i> Visual Workflow Automation</li>
+                            <li><i class="fas fa-check-circle"></i> Send Messages from n8n</li>
+                            <li><i class="fas fa-check-circle"></i> Build Chatbots Visually</li>
+                            <li><i class="fas fa-check-circle"></i> Open Source &amp; Free</li>
+                        </ul>
+                        <a href="https://www.npmjs.com/package/n8n-nodes-wcrm" class="product-cta" target="_blank">View on npm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- CTWA Leads Attribution Portal -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>CTWA Leads Attribution</h3>
+                        <p class="subtitle">crm.srlines.net/marketing</p>
+                        <span class="product-badge">NEW</span>
+                    </div>
+                    <div class="product-body">
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Click-to-WhatsApp Ad Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Accurate Lead Attribution</li>
+                            <li><i class="fas fa-check-circle"></i> Campaign Performance Analytics</li>
+                            <li><i class="fas fa-check-circle"></i> ROI Measurement Tools</li>
+                            <li><i class="fas fa-check-circle"></i> Real-Time Dashboard</li>
+                        </ul>
+                        <a href="https://crm.srlines.net/marketing" class="product-cta" target="_blank">Explore Portal <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Platform Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>wCRM Platform Features</h2>
+                <p>Everything you need to manage WhatsApp business communication at scale</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F916;</div>
+                    <div>
+                        <h4>AI Chatbot (OpenAI)</h4>
+                        <p>Smart auto-replies &amp; human-like conversations powered by OpenAI for 24/7 customer engagement</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F4CB;</div>
+                    <div>
+                        <h4>Template Chatbot</h4>
+                        <p>Ready-made conversation flows for instant automation without any coding required</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F4E5;</div>
+                    <div>
+                        <h4>Unified Inbox</h4>
+                        <p>Manage all WhatsApp chats in one powerful dashboard with team collaboration</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F3F7;&#xFE0F;</div>
+                    <div>
+                        <h4>Tags &amp; Notes</h4>
+                        <p>Track and organize every customer interaction with smart labeling and note-taking</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F4DE;</div>
+                    <div>
+                        <h4>Phone Book</h4>
+                        <p>Simple and powerful contact management with import/export capabilities</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F4E3;</div>
+                    <div>
+                        <h4>Broadcast Campaigns</h4>
+                        <p>Send bulk WhatsApp messages to thousands of contacts with analytics tracking</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F6CD;&#xFE0F;</div>
+                    <div>
+                        <h4>Shopify Integration</h4>
+                        <p>Auto sync your Shopify store &amp; customer data with WhatsApp notifications</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F6D2;</div>
+                    <div>
+                        <h4>WooCommerce Plugin</h4>
+                        <p>Order notifications &amp; chat automation for WordPress WooCommerce stores</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F4F1;</div>
+                    <div>
+                        <h4>Android App</h4>
+                        <p>Manage your business anytime, anywhere with the wCRM mobile application</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-emoji">&#x1F4CA;</div>
+                    <div>
+                        <h4>CTWA Leads Attribution</h4>
+                        <p>Track Click-to-WhatsApp ad leads accurately with real-time attribution data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- n8n Automation Section -->
+    <section class="section section-alt" id="n8n">
+        <div class="container">
+            <div class="section-title">
+                <h2>n8n &amp; wCRM Integration</h2>
+                <p>Connect WhatsApp to 400+ apps with visual workflow automation</p>
+            </div>
+            <div class="n8n-grid">
+                <div class="n8n-content">
+                    <h3>Automate WhatsApp with n8n Workflows</h3>
+                    <p><strong>n8n</strong> is a powerful open-source workflow automation platform that lets you connect any app to any app using visual, no-code workflows. Think of it as an open-source alternative to Zapier &mdash; but with full control and self-hosting options.</p>
+                    <p><strong>wCRM is an official n8n community node</strong>, published on npm and listed on the n8n creator marketplace. This means you can integrate WhatsApp Cloud API into any n8n workflow with just a few clicks.</p>
+                    <ul class="n8n-capabilities">
+                        <li><i class="fas fa-check-circle"></i> Send WhatsApp messages from n8n workflows</li>
+                        <li><i class="fas fa-check-circle"></i> Build chatbots with visual drag-and-drop workflows</li>
+                        <li><i class="fas fa-check-circle"></i> Connect WhatsApp to 400+ apps (CRMs, databases, APIs)</li>
+                        <li><i class="fas fa-check-circle"></i> Trigger automations on incoming WhatsApp messages</li>
+                        <li><i class="fas fa-check-circle"></i> Free, open-source, and self-hostable</li>
+                    </ul>
+                    <div class="n8n-install">
+                        <span>$ </span><code>npm install n8n-nodes-wcrm</code>
+                    </div>
+                    <div class="n8n-links">
+                        <a href="https://www.npmjs.com/package/n8n-nodes-wcrm" class="btn btn-primary" target="_blank" style="padding: 10px 20px; font-size: 0.9rem;"><i class="fab fa-npm"></i> npm Package</a>
+                        <a href="https://n8n.io/creators/srlinessoftwarehouse" class="btn btn-secondary" target="_blank" style="padding: 10px 20px; font-size: 0.9rem; color: var(--dark); border-color: var(--gray-light);"><i class="fas fa-circle-nodes"></i> n8n Creator Profile</a>
+                        <a href="https://github.com/AiSRLINES" class="btn btn-secondary" target="_blank" style="padding: 10px 20px; font-size: 0.9rem; color: var(--dark); border-color: var(--gray-light);"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 24px; justify-content: center;">
+                    <div class="expertise-card" style="text-align: left;">
+                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                            <div class="expertise-icon" style="margin: 0; width: 56px; height: 56px; flex-shrink: 0;"><i class="fas fa-circle-nodes"></i></div>
+                            <div>
+                                <h3 style="margin-bottom: 2px;">n8n Community Node</h3>
+                                <p style="font-size: 0.85rem;">n8n-nodes-wcrm</p>
+                            </div>
+                        </div>
+                        <p>Officially listed on the n8n marketplace. Enables WhatsApp Cloud API automation in any n8n workflow with zero coding.</p>
+                    </div>
+                    <div class="expertise-card" style="text-align: left;">
+                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                            <div class="expertise-icon" style="margin: 0; width: 56px; height: 56px; flex-shrink: 0; background: linear-gradient(135deg, var(--secondary), #128C7E);"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <h3 style="margin-bottom: 2px;">WhatsApp Cloud API</h3>
+                                <p style="font-size: 0.85rem;">Meta Official API</p>
+                            </div>
+                        </div>
+                        <p>Send template messages, media, interactive buttons, and more through Meta's official WhatsApp Cloud API.</p>
+                    </div>
+                    <div class="expertise-card" style="text-align: left;">
+                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                            <div class="expertise-icon" style="margin: 0; width: 56px; height: 56px; flex-shrink: 0; background: linear-gradient(135deg, #f59e0b, #ec4899);"><i class="fas fa-plug"></i></div>
+                            <div>
+                                <h3 style="margin-bottom: 2px;">400+ Integrations</h3>
+                                <p style="font-size: 0.85rem;">Connect Anything</p>
+                            </div>
+                        </div>
+                        <p>Link WhatsApp to Google Sheets, Slack, HubSpot, Salesforce, databases, webhooks, and hundreds more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
     <section class="section" id="expertise">
         <div class="container">
             <div class="section-title">
@@ -491,6 +897,7 @@
         </div>
     </section>
 
+    <!-- Highlights -->
     <section class="section section-alt" id="highlights">
         <div class="container">
             <div class="section-title">
@@ -523,6 +930,7 @@
         </div>
     </section>
 
+    <!-- CEO/Founder -->
     <section class="section" id="ceo">
         <div class="container">
             <div class="section-title">
@@ -534,14 +942,14 @@
                     <img src="CEO-Photograph.jpg" alt="Mr. Shahid Rasool - Founder & CEO" class="ceo-image">
                     <div class="ceo-badge">
                         <h4>Mr. Shahid Rasool</h4>
-                        <p>Founder & Chief Executive Officer</p>
+                        <p>Founder &amp; Chief Executive Officer</p>
                     </div>
                 </div>
                 <div class="ceo-content">
                     <h3>Mr. Shahid Rasool</h3>
-                    <p class="lead">Meta Verified Technology Partner & Coursera Certified Professional</p>
-                    <p>Mr. Shahid Rasool is the visionary founder of SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED. Under his leadership, the company has grown to serve both national and international clients with premium IT solutions.</p>
-                    <p>With extensive experience in web and mobile development, WhatsApp automation, and digital marketing, Mr. Shahid has built a team dedicated to delivering excellence. His vision is to expand the SRLINES family by bringing talented professionals who share the passion for technology and innovation.</p>
+                    <p class="lead">Meta Verified Technology Partner &amp; Coursera Certified Professional</p>
+                    <p>Mr. Shahid Rasool is the visionary founder of SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED. Under his leadership, the company has grown into Pakistan's leading WhatsApp Cloud API solutions platform, serving 500+ businesses with enterprise-grade messaging infrastructure.</p>
+                    <p>With deep expertise in WhatsApp Cloud API, Node.js, and SaaS product development, Mr. Shahid has built an ecosystem of products &mdash; from wCRM to Catalogify.pk, Shopify &amp; WooCommerce integrations, and the n8n community node &mdash; that power businesses across Pakistan and beyond.</p>
                     <div class="ceo-contact">
                         <div class="ceo-contact-item"><i class="fas fa-phone"></i><a href="tel:+923339776136">+92 333 9776136</a></div>
                         <div class="ceo-contact-item"><i class="fas fa-envelope"></i><a href="mailto:contact@srlines.net">contact@srlines.net</a></div>
@@ -555,6 +963,7 @@
         </div>
     </section>
 
+    <!-- Careers -->
     <section class="section section-dark" id="careers">
         <div class="container">
             <div class="section-title">
@@ -576,6 +985,7 @@
         </div>
     </section>
 
+    <!-- Contact -->
     <section class="section section-dark" id="contact">
         <div class="container">
             <div class="section-title">
@@ -602,20 +1012,31 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>SRLINES SOFTWARE HOUSE</h4>
-                    <p>SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED - SECP Registered, Meta Verified Technology Partner providing premium IT solutions to national and international clients.</p>
-                    <p><strong>Founder:</strong> Mr. Shahid Rasool</p>
+                    <p>SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED &mdash; Pakistan's #1 WhatsApp Cloud API Platform. SECP Registered &amp; Meta Verified Technology Partner powering 500+ businesses.</p>
+                    <p><strong>Founder &amp; CEO:</strong> Mr. Shahid Rasool</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/AiSRLINES" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.npmjs.com/package/n8n-nodes-wcrm" target="_blank" aria-label="npm"><i class="fab fa-npm"></i></a>
+                        <a href="https://wa.me/923339776136" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:contact@srlines.net" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h4>Products</h4>
                     <ul>
-                        <li><a href="https://crm.srlines.net" target="_blank">WhatsApp CRM</a></li>
+                        <li><a href="https://crm.srlines.net" target="_blank">wCRM Platform</a></li>
                         <li><a href="https://catalogify.pk" target="_blank">Catalogify.pk</a></li>
                         <li><a href="https://apps.shopify.com/wcrm" target="_blank">wCRM Shopify App</a></li>
+                        <li><a href="https://crm.srlines.net" target="_blank">wCRM WooCommerce</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.wcrm.app" target="_blank">wCRM Android App</a></li>
+                        <li><a href="https://www.npmjs.com/package/n8n-nodes-wcrm" target="_blank">n8n Community Node</a></li>
+                        <li><a href="https://crm.srlines.net/marketing" target="_blank">CTWA Leads Portal</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -625,6 +1046,7 @@
                         <li><a href="#expertise">Our Expertise</a></li>
                         <li><a href="#ceo">Our Founder</a></li>
                         <li><a href="#careers">Careers</a></li>
+                        <li><a href="https://n8n.io/creators/srlinessoftwarehouse" target="_blank">n8n Creator Profile</a></li>
                     </ul>
                 </div>
                 <div class="footer-col" id="privacy">
@@ -637,7 +1059,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED. All Rights Reserved.</p>
+                <p>&copy; 2024&ndash;2025 SRLINES SOFTWARE HOUSE (SMC-PRIVATE) LIMITED. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -646,7 +1068,7 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const overlay = document.getElementById('overlay');
-        
+
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
@@ -655,7 +1077,7 @@
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
         });
-        
+
         overlay.addEventListener('click', function() {
             mobileMenu.classList.remove('active');
             overlay.classList.remove('active');
@@ -663,8 +1085,8 @@
             mobileMenuBtn.querySelector('i').classList.remove('fa-times');
             mobileMenuBtn.querySelector('i').classList.add('fa-bars');
         });
-        
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
+
+        document.querySelectorAll('.mobile-menu a').forEach(function(link) {
             link.addEventListener('click', function() {
                 mobileMenu.classList.remove('active');
                 overlay.classList.remove('active');
@@ -673,21 +1095,21 @@
                 mobileMenuBtn.querySelector('i').classList.add('fa-bars');
             });
         });
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
+                var targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
+                var targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
                 }
             });
         });
-        
+
         window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
+            var header = document.getElementById('header');
             header.classList.toggle('scrolled', window.scrollY > 50);
         });
     </script>
