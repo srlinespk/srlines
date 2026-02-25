@@ -2,7 +2,7 @@
 Contributors: srlines
 Tags: order notifications, meta api, notifications, order confirmation, messaging
 Requires at least: 6.6
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 8.2
 Stable tag: 5.1.0
 License: GPLv2 or later

@@ -47,9 +47,14 @@ final class SRLines_Order_Notifications {
     }
 
     private function init_logger() {
-        $log_dir = plugin_dir_path(__FILE__) . 'logs';
+        $upload_dir = wp_upload_dir();
+        $log_dir = $upload_dir['basedir'] . '/srlines-order-notifications-logs';
         if (!file_exists($log_dir)) {
-            mkdir($log_dir, 0755, true);
+            wp_mkdir_p($log_dir);
+            // Protect log directory with an index.php file
+            if (!file_exists($log_dir . '/index.php')) {
+                file_put_contents($log_dir . '/index.php', "<?php\n// Silence is golden.\n");
+            }
         }
 
         $this->logger = new class($log_dir . '/wc-notifications.log') {
@@ -220,20 +225,13 @@ final class SRLines_Order_Notifications {
 
     private function create_assets_dir() {
         $dirs = [
-            plugin_dir_path(__FILE__) . 'logs',
             plugin_dir_path(__FILE__) . 'assets'
         ];
 
         foreach ($dirs as $dir) {
             if (!file_exists($dir)) {
-                mkdir($dir, 0755, true);
+                wp_mkdir_p($dir);
             }
-        }
-
-        // Create .htaccess to protect logs
-        $htaccess = plugin_dir_path(__FILE__) . 'logs/.htaccess';
-        if (!file_exists($htaccess)) {
-            file_put_contents($htaccess, "<FilesMatch \"\\.(log)$\">\n    Order Allow,Deny\n    Deny from all\n</FilesMatch>\nOptions -Indexes");
         }
     }
 
