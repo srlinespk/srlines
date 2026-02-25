@@ -499,6 +499,34 @@
         .map-container { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15); margin-top: 40px; }
         .map-container iframe { width: 100%; height: 300px; border: 0; }
 
+        /* Infrastructure / Enterprise Readiness Section */
+        .infra-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+        .infra-card { background: white; padding: 28px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .infra-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99,102,241,0.15); }
+        .infra-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .infra-card h4 i { color: var(--primary); }
+        .infra-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.7; margin-bottom: 10px; }
+        .infra-card ul { list-style: none; margin-top: 8px; }
+        .infra-card ul li { padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; color: var(--dark-alt); font-size: 0.85rem; }
+        .infra-card ul li i { color: var(--success); margin-top: 3px; font-size: 0.8rem; }
+        .infra-stat { display: inline-block; background: var(--light); padding: 4px 12px; border-radius: 8px; font-weight: 700; color: var(--primary); font-size: 0.9rem; margin-right: 6px; margin-bottom: 6px; }
+        .meta-verification-box { background: linear-gradient(135deg, #0081FB 0%, #00C6FF 100%); border-radius: 16px; padding: 32px; color: white; margin-top: 28px; }
+        .meta-verification-box h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .meta-ids { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+        .meta-id-item { background: rgba(255,255,255,0.15); padding: 12px 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); }
+        .meta-id-item .label { font-size: 0.75rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px; }
+        .meta-id-item .value { font-size: 1rem; font-weight: 700; font-family: monospace; }
+        .meta-verification-box p { opacity: 0.92; font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+        .infra-diagram { background: var(--dark); border-radius: 16px; padding: 32px; color: white; text-align: center; margin-top: 28px; }
+        .infra-diagram h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; }
+        .diagram-layers { display: flex; flex-direction: column; gap: 12px; max-width: 700px; margin: 0 auto; }
+        .diagram-layer { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.08); padding: 14px 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
+        .diagram-layer-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .diagram-layer-text { text-align: left; }
+        .diagram-layer-text .layer-name { font-weight: 700; font-size: 0.95rem; }
+        .diagram-layer-text .layer-desc { font-size: 0.8rem; opacity: 0.75; }
+        .diagram-connector { color: var(--accent); font-size: 1rem; }
+
         @media (max-width: 992px) {
             .about-grid, .ceo-container, .n8n-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -546,6 +574,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#architecture">Architecture</a></li>
                     <li><a href="#products">Products</a></li>
+                    <li><a href="#n8n">n8n</a></li>
                     <li><a href="#case-studies">Case Studies</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#compliance">Compliance</a></li>
@@ -565,6 +594,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#architecture">Architecture</a></li>
             <li><a href="#products">Products</a></li>
+            <li><a href="#n8n">n8n</a></li>
             <li><a href="#case-studies">Case Studies</a></li>
             <li><a href="#reviews">Reviews</a></li>
             <li><a href="#compliance">Compliance</a></li>
@@ -718,6 +748,109 @@
                     <span class="flow-arrow"><i class="fas fa-arrow-right"></i></span>
                     <div class="flow-step"><i class="fab fa-whatsapp"></i> End Customer on WhatsApp</div>
                 </div>
+            </div>
+            <!-- Enterprise Infrastructure -->
+            <div class="infra-grid" style="margin-top: 40px;">
+                <div class="infra-card">
+                    <h4><i class="fas fa-server"></i> Uptime SLA</h4>
+                    <p>SRLINES wCRM platform guarantees <strong>99.9% uptime SLA</strong> for all paid plans. Our infrastructure is monitored 24/7 with automated alerting and incident response.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 99.9% uptime guarantee on paid plans</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 automated monitoring &amp; alerting</li>
+                        <li><i class="fas fa-check-circle"></i> Scheduled maintenance windows communicated in advance</li>
+                        <li><i class="fas fa-check-circle"></i> Real-time status monitoring for all services</li>
+                    </ul>
+                </div>
+                <div class="infra-card">
+                    <h4><i class="fas fa-globe-asia"></i> Data Residency</h4>
+                    <p>All application data is hosted on secure cloud servers. WhatsApp message content is processed in transit through Meta's infrastructure and is <strong>not stored on SRLINES servers</strong> beyond session requirements.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Cloud-hosted on scalable VPS infrastructure</li>
+                        <li><i class="fas fa-check-circle"></i> Message content processed via Meta servers (not stored)</li>
+                        <li><i class="fas fa-check-circle"></i> CRM data encrypted at rest &amp; in transit (TLS 1.3)</li>
+                        <li><i class="fas fa-check-circle"></i> Database backups with point-in-time recovery</li>
+                    </ul>
+                </div>
+                <div class="infra-card">
+                    <h4><i class="fas fa-tachometer-alt"></i> Throughput &amp; Rate Limits</h4>
+                    <p>Our platform handles <strong>high-volume messaging</strong> with intelligent rate limit management that respects Meta's API thresholds while maximizing delivery speed.</p>
+                    <div style="margin: 12px 0;">
+                        <span class="infra-stat">80 msg/sec</span>
+                        <span class="infra-stat">1,000+ msg/min</span>
+                        <span class="infra-stat">100K+ msg/day</span>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Intelligent queue management with auto-throttling</li>
+                        <li><i class="fas fa-check-circle"></i> Automatic retry with exponential backoff on rate limits</li>
+                        <li><i class="fas fa-check-circle"></i> Meta API rate limit compliance (respects 80 msg/sec cap)</li>
+                        <li><i class="fas fa-check-circle"></i> Batch processing for broadcast campaigns</li>
+                    </ul>
+                </div>
+                <div class="infra-card">
+                    <h4><i class="fas fa-sync-alt"></i> Failover &amp; Redundancy</h4>
+                    <p>Built-in failover mechanisms ensure <strong>message delivery resilience</strong>. If primary delivery fails, automatic retry queues and fallback processes activate immediately.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Automatic message retry on transient failures</li>
+                        <li><i class="fas fa-check-circle"></i> Webhook delivery confirmation with fallback retries</li>
+                        <li><i class="fas fa-check-circle"></i> Database replication for data redundancy</li>
+                        <li><i class="fas fa-check-circle"></i> Graceful degradation under high load</li>
+                        <li><i class="fas fa-check-circle"></i> Incident response &amp; escalation procedures</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Infrastructure Diagram -->
+            <div class="infra-diagram">
+                <h4><i class="fas fa-layer-group"></i> Infrastructure Stack Overview</h4>
+                <div class="diagram-layers">
+                    <div class="diagram-layer">
+                        <div class="diagram-layer-icon" style="background: rgba(0,129,251,0.2);"><i class="fab fa-meta" style="color: #0081FB;"></i></div>
+                        <div class="diagram-layer-text">
+                            <div class="layer-name">Meta WhatsApp Cloud API</div>
+                            <div class="layer-desc">Graph API v21.0+ &bull; Webhooks &bull; Template Management &bull; Media CDN</div>
+                        </div>
+                    </div>
+                    <div class="diagram-connector"><i class="fas fa-arrows-alt-v"></i> HTTPS / TLS 1.3</div>
+                    <div class="diagram-layer">
+                        <div class="diagram-layer-icon" style="background: rgba(99,102,241,0.2);"><i class="fas fa-cloud" style="color: var(--primary-light);"></i></div>
+                        <div class="diagram-layer-text">
+                            <div class="layer-name">SRLINES wCRM Application Layer</div>
+                            <div class="layer-desc">Node.js &bull; Express &bull; Queue Workers &bull; AI Engine (OpenAI) &bull; Webhook Processor</div>
+                        </div>
+                    </div>
+                    <div class="diagram-connector"><i class="fas fa-arrows-alt-v"></i> Encrypted Connection</div>
+                    <div class="diagram-layer">
+                        <div class="diagram-layer-icon" style="background: rgba(16,185,129,0.2);"><i class="fas fa-database" style="color: var(--success);"></i></div>
+                        <div class="diagram-layer-text">
+                            <div class="layer-name">Data &amp; Storage Layer</div>
+                            <div class="layer-desc">MongoDB Atlas &bull; Redis Cache &bull; File Storage &bull; Automated Backups</div>
+                        </div>
+                    </div>
+                    <div class="diagram-connector"><i class="fas fa-arrows-alt-v"></i> Secure APIs</div>
+                    <div class="diagram-layer">
+                        <div class="diagram-layer-icon" style="background: rgba(245,158,11,0.2);"><i class="fas fa-plug" style="color: var(--accent);"></i></div>
+                        <div class="diagram-layer-text">
+                            <div class="layer-name">Integration Layer</div>
+                            <div class="layer-desc">Shopify &bull; WooCommerce &bull; n8n &bull; REST API &bull; Webhooks &bull; Android App</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Meta Verification Credentials -->
+            <div class="meta-verification-box">
+                <h4><i class="fab fa-meta"></i> Meta Technology Partner &mdash; Verified Credentials</h4>
+                <p>SRLINES is a <strong>Meta Verified Technology Partner</strong>. Since Meta has deprecated public verification links for technology partners, we provide our verifiable Meta credentials below along with our official certificate.</p>
+                <div class="meta-ids">
+                    <div class="meta-id-item">
+                        <div class="label">Meta App ID</div>
+                        <div class="value">6673587296096434</div>
+                    </div>
+                    <div class="meta-id-item">
+                        <div class="label">Meta Business ID</div>
+                        <div class="value">808106767764200</div>
+                    </div>
+                </div>
+                <p>These IDs can be verified through <strong>Meta Business Suite</strong> and <strong>Meta for Developers</strong> portal. Our Meta Tech Provider certificate is available for download below.</p>
+                <a href="Meta Tech Provider Certificate.pdf" class="btn btn-primary" target="_blank" style="margin-top: 8px;"><i class="fas fa-file-pdf"></i> Download Meta Tech Provider Certificate (PDF)</a>
             </div>
         </div>
     </section>
