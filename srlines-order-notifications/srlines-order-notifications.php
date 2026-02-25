@@ -18,6 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
 final class SRLines_Order_Notifications {
     
     private static $instance = null;
@@ -330,7 +331,7 @@ final class SRLines_Order_Notifications {
         $settings = get_option($this->option_name, []);
         if (empty($settings['notificationSettings']['crmApiKey'])) {
             echo '<div class="notice notice-warning is-dismissible">';
-            echo '<p><strong>📱 Order Notifications:</strong> Please configure your Meta API key in <a href="' . admin_url('admin.php?page=wc-notifications-settings') . '">settings</a> to start sending notifications.</p>';
+            echo '<p><strong>📱 Order Notifications:</strong> Please configure your Meta API key in <a href="' . esc_url( admin_url('admin.php?page=wc-notifications-settings') ) . '">settings</a> to start sending notifications.</p>';
             echo '</div>';
         }
     }
@@ -427,8 +428,10 @@ final class SRLines_Order_Notifications {
         $shop = home_url();
 
         if ($msg_id) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
             $context = $wpdb->get_row($wpdb->prepare(
-                "SELECT order_id FROM {$this->context_table} WHERE msg_id = %s LIMIT 1",
+                "SELECT order_id FROM %i WHERE msg_id = %s LIMIT 1",
+                $this->context_table,
                 $msg_id
             ));
             
@@ -443,11 +446,13 @@ final class SRLines_Order_Notifications {
 
         // If no msg_id match, try phone number (last 24 hours)
         if (!$order_id) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
             $context = $wpdb->get_row($wpdb->prepare(
-                "SELECT order_id FROM {$this->context_table} 
+                "SELECT order_id FROM %i 
                  WHERE customer_phone = %s AND processed = 0 
                  AND created_at > DATE_SUB(NOW(), INTERVAL 24 HOUR)
                  ORDER BY created_at DESC LIMIT 1",
+                $this->context_table,
                 $normalized_phone
             ));
             
@@ -466,10 +471,12 @@ final class SRLines_Order_Notifications {
         }
 
         // Check if already processed
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $existing = $wpdb->get_var($wpdb->prepare(
-            "SELECT id FROM {$this->responses_table} 
+            "SELECT id FROM %i 
              WHERE order_id = %s AND action = %s AND processed = 1 
              LIMIT 1",
+            $this->responses_table,
             $order_id,
             $action
         ));
@@ -479,6 +486,7 @@ final class SRLines_Order_Notifications {
         }
 
         // Store the response
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
         $wpdb->insert(
             $this->responses_table,
             [
@@ -496,6 +504,7 @@ final class SRLines_Order_Notifications {
         $response_id = $wpdb->insert_id;
 
         // Update context as processed
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $wpdb->update(
             $this->context_table,
             ['processed' => 1, 'action' => $action, 'updated_at' => current_time('mysql')],
@@ -509,8 +518,8 @@ final class SRLines_Order_Notifications {
 
         if ($order_updated) {
             // Mark response as processed
-            $wpdb->update(
-                $this->responses_table,
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+            $wpdb->update(                $this->responses_table,
                 [
                     'processed' => 1,
                     'processed_at' => current_time('mysql'),
@@ -659,9 +668,11 @@ final class SRLines_Order_Notifications {
         $shop_url = home_url();
 
         // Check if notification already exists
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $existing = $wpdb->get_var($wpdb->prepare(
-            "SELECT id FROM {$this->table_name} 
+            "SELECT id FROM %i 
              WHERE shop = %s AND order_id = %s AND event_type = %s",
+            $this->table_name,
             $shop_url,
             '#' . $order_number,
             $event_type
@@ -694,6 +705,7 @@ final class SRLines_Order_Notifications {
         }
 
         if ($existing) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
             $wpdb->update(
                 $this->table_name,
                 $notification_data,
@@ -704,6 +716,7 @@ final class SRLines_Order_Notifications {
             $notification_id = $existing;
         } else {
             $notification_data['created_at'] = $current_time;
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
             $wpdb->insert(
                 $this->table_name,
                 $notification_data,
@@ -755,6 +768,7 @@ final class SRLines_Order_Notifications {
 
             if ($status_code === 200 && isset($body['success']) && $body['success'] === true) {
                 // Update notification as sent
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 $wpdb->update(
                     $this->table_name,
                     [
@@ -780,12 +794,15 @@ final class SRLines_Order_Notifications {
 
                 // Store context for response matching
                 if ($msg_id) {
+                    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                     $existing = $wpdb->get_var($wpdb->prepare(
-                        "SELECT id FROM {$this->context_table} WHERE msg_id = %s",
+                        "SELECT id FROM %i WHERE msg_id = %s",
+                        $this->context_table,
                         $msg_id
                     ));
 
                     if (!$existing) {
+                        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
                         $wpdb->insert(
                             $this->context_table,
                             [
@@ -819,6 +836,7 @@ final class SRLines_Order_Notifications {
             }
 
         } catch (Exception $e) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
             $wpdb->update(
                 $this->table_name,
                 [
@@ -849,12 +867,12 @@ final class SRLines_Order_Notifications {
             wp_send_json_error(['message' => 'Insufficient permissions'], 403);
         }
 
-        $crm_api_key = sanitize_text_field($_POST['crmApiKey'] ?? '');
+        $crm_api_key = sanitize_text_field( wp_unslash( $_POST['crmApiKey'] ?? '' ) );
         $order_created_enabled = isset($_POST['orderCreatedEnabled']) && $_POST['orderCreatedEnabled'] === 'true';
-        $order_created_template = sanitize_text_field($_POST['orderCreatedTemplate'] ?? 'confirm_order');
+        $order_created_template = sanitize_text_field( wp_unslash( $_POST['orderCreatedTemplate'] ?? 'confirm_order' ) );
         $fulfillment_created_enabled = isset($_POST['fulfillmentCreatedEnabled']) && $_POST['fulfillmentCreatedEnabled'] === 'true';
-        $fulfillment_created_template = sanitize_text_field($_POST['fulfillmentCreatedTemplate'] ?? 'confirm_fulfill');
-        $default_phone = sanitize_text_field($_POST['defaultPhone'] ?? '+923339776136');
+        $fulfillment_created_template = sanitize_text_field( wp_unslash( $_POST['fulfillmentCreatedTemplate'] ?? 'confirm_fulfill' ) );
+        $default_phone = sanitize_text_field( wp_unslash( $_POST['defaultPhone'] ?? '+923339776136' ) );
 
         if (empty($crm_api_key)) {
             wp_send_json_error(['message' => 'CRM API key is required'], 400);
@@ -896,7 +914,7 @@ final class SRLines_Order_Notifications {
             wp_send_json_error(['message' => 'Insufficient permissions'], 403);
         }
 
-        $api_key = sanitize_text_field($_POST['apiKey'] ?? '');
+        $api_key = sanitize_text_field( wp_unslash( $_POST['apiKey'] ?? '' ) );
         if (empty($api_key)) {
             wp_send_json_error(['message' => 'API key required'], 400);
         }
@@ -948,8 +966,10 @@ final class SRLines_Order_Notifications {
         }
 
         global $wpdb;
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $response = $wpdb->get_row($wpdb->prepare(
-            "SELECT * FROM {$this->responses_table} WHERE id = %d",
+            "SELECT * FROM %i WHERE id = %d",
+            $this->responses_table,
             $response_id
         ));
 
@@ -965,6 +985,7 @@ final class SRLines_Order_Notifications {
 
         if ($success) {
             // Mark as processed
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
             $wpdb->update(
                 $this->responses_table,
                 [
@@ -997,8 +1018,10 @@ final class SRLines_Order_Notifications {
         }
 
         global $wpdb;
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $notification = $wpdb->get_row($wpdb->prepare(
-            "SELECT * FROM {$this->table_name} WHERE id = %d",
+            "SELECT * FROM %i WHERE id = %d",
+            $this->table_name,
             $notification_id
         ));
 
@@ -1022,15 +1045,21 @@ final class SRLines_Order_Notifications {
         global $wpdb;
         
         // Get stats
-        $total_notifications = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name}");
-        $sent_notifications = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name} WHERE status = 'sent'");
-        $failed_notifications = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name} WHERE status = 'failed'");
-        $total_responses = $wpdb->get_var("SELECT COUNT(*) FROM {$this->responses_table}");
-        $processed_responses = $wpdb->get_var("SELECT COUNT(*) FROM {$this->responses_table} WHERE processed = 1");
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        $total_notifications = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i", $this->table_name ) );
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        $sent_notifications = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status = 'sent'", $this->table_name ) );
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        $failed_notifications = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE status = 'failed'", $this->table_name ) );
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        $total_responses = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i", $this->responses_table ) );
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        $processed_responses = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i WHERE processed = 1", $this->responses_table ) );
         
         // Get recent responses
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $recent_responses = $wpdb->get_results(
-            "SELECT * FROM {$this->responses_table} ORDER BY created_at DESC LIMIT 10"
+            $wpdb->prepare( "SELECT * FROM %i ORDER BY created_at DESC LIMIT 10", $this->responses_table )
         );
         
         $webhook_url = rest_url('wc-notifications/v1/customer-response');
@@ -1157,9 +1186,9 @@ final class SRLines_Order_Notifications {
             <div class="widget">
                 <h3>⚡ Quick Actions</h3>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <a href="<?php echo admin_url('admin.php?page=wc-notifications-settings'); ?>" class="button button-primary">⚙️ Configure Settings</a>
-                    <a href="<?php echo admin_url('admin.php?page=wc-notifications-responses'); ?>" class="button">📋 View All Responses</a>
-                    <a href="<?php echo admin_url('admin.php?page=wc-notifications-notifications'); ?>" class="button">📨 View All Notifications</a>
+                    <a href="<?php echo esc_url( admin_url('admin.php?page=wc-notifications-settings') ); ?>" class="button button-primary">⚙️ Configure Settings</a>
+                    <a href="<?php echo esc_url( admin_url('admin.php?page=wc-notifications-responses') ); ?>" class="button">📋 View All Responses</a>
+                    <a href="<?php echo esc_url( admin_url('admin.php?page=wc-notifications-notifications') ); ?>" class="button">📨 View All Notifications</a>
                 </div>
             </div>
         </div>
@@ -1372,15 +1401,19 @@ final class SRLines_Order_Notifications {
     public function render_responses() {
         global $wpdb;
         
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Pagination parameter only, no data modification.
         $page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
         $per_page = 20;
         $offset = ($page - 1) * $per_page;
         
-        $total = $wpdb->get_var("SELECT COUNT(*) FROM {$this->responses_table}");
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        $total = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i", $this->responses_table ) );
         $total_pages = ceil($total / $per_page);
         
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $responses = $wpdb->get_results($wpdb->prepare(
-            "SELECT * FROM {$this->responses_table} ORDER BY created_at DESC LIMIT %d OFFSET %d",
+            "SELECT * FROM %i ORDER BY created_at DESC LIMIT %d OFFSET %d",
+            $this->responses_table,
             $per_page,
             $offset
         ));
@@ -1469,14 +1502,14 @@ final class SRLines_Order_Notifications {
                 <div class="tablenav" style="margin-top: 20px;">
                     <div class="tablenav-pages">
                         <?php
-                        echo paginate_links([
+                        echo wp_kses_post( paginate_links([
                             'base' => add_query_arg('paged', '%#%'),
                             'format' => '',
                             'prev_text' => '&laquo; Previous',
                             'next_text' => 'Next &raquo;',
                             'total' => $total_pages,
                             'current' => $page
-                        ]);
+                        ]) );
                         ?>
                     </div>
                 </div>
@@ -1489,15 +1522,19 @@ final class SRLines_Order_Notifications {
     public function render_notifications() {
         global $wpdb;
         
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Pagination parameter only, no data modification.
         $page = isset($_GET['paged']) ? max(1, intval($_GET['paged'])) : 1;
         $per_page = 20;
         $offset = ($page - 1) * $per_page;
         
-        $total = $wpdb->get_var("SELECT COUNT(*) FROM {$this->table_name}");
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+        $total = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM %i", $this->table_name ) );
         $total_pages = ceil($total / $per_page);
         
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $notifications = $wpdb->get_results($wpdb->prepare(
-            "SELECT * FROM {$this->table_name} ORDER BY created_at DESC LIMIT %d OFFSET %d",
+            "SELECT * FROM %i ORDER BY created_at DESC LIMIT %d OFFSET %d",
+            $this->table_name,
             $per_page,
             $offset
         ));
@@ -1578,14 +1615,14 @@ final class SRLines_Order_Notifications {
                 <div class="tablenav" style="margin-top: 20px;">
                     <div class="tablenav-pages">
                         <?php
-                        echo paginate_links([
+                        echo wp_kses_post( paginate_links([
                             'base' => add_query_arg('paged', '%#%'),
                             'format' => '',
                             'prev_text' => '&laquo; Previous',
                             'next_text' => 'Next &raquo;',
                             'total' => $total_pages,
                             'current' => $page
-                        ]);
+                        ]) );
                         ?>
                     </div>
                 </div>
@@ -1673,16 +1710,19 @@ final class SRLines_Order_Notifications {
     public function cleanup_old_records() {
         global $wpdb;
         
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $context_deleted = $wpdb->query(
-            "DELETE FROM {$this->context_table} WHERE created_at < DATE_SUB(NOW(), INTERVAL 7 DAY)"
+            $wpdb->prepare( "DELETE FROM %i WHERE created_at < DATE_SUB(NOW(), INTERVAL 7 DAY)", $this->context_table )
         );
         
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $responses_deleted = $wpdb->query(
-            "DELETE FROM {$this->responses_table} WHERE processed = 1 AND created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)"
+            $wpdb->prepare( "DELETE FROM %i WHERE processed = 1 AND created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)", $this->responses_table )
         );
         
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $notifications_deleted = $wpdb->query(
-            "DELETE FROM {$this->table_name} WHERE status IN ('sent', 'failed') AND created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)"
+            $wpdb->prepare( "DELETE FROM %i WHERE status IN ('sent', 'failed') AND created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)", $this->table_name )
         );
         
         $this->logger->info('🧹 Cleanup completed', [
