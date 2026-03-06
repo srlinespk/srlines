@@ -4,7 +4,7 @@
  *
  * Fired when the plugin is uninstalled.
  *
- * @package SRLines_Order_Notifications
+ * @package SRLIORNO_Plugin
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
@@ -14,16 +14,16 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 global $wpdb;
 
 // Remove plugin options
-delete_option( 'wc_notifications_settings' );
-delete_option( 'wc_notifications_db_version' );
+delete_option( 'srliorno_settings' );
+delete_option( 'srliorno_db_version' );
 
 // Remove custom tables
 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange
-$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}wc_notifications" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}srliorno_notifications" );
 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange
-$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}wc_notifications_context" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}srliorno_context" );
 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange
-$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}wc_notifications_responses" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}srliorno_responses" );
 
 // Clear scheduled events
-wp_clear_scheduled_hook( 'wc_notifications_cleanup' );
+wp_clear_scheduled_hook( 'srliorno_cleanup' );
