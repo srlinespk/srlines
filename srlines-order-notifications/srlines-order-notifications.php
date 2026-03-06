@@ -1339,7 +1339,6 @@ final class SRLIORNO_Plugin {
             
             <div class="settings-container" style="background: white; border: 1px solid #e2e4e7; border-radius: 8px; padding: 20px; margin-top: 20px;">
                 <form id="srliorno-settings-form">
-                    <?php wp_nonce_field('srliorno_settings'); ?>
                     
                     <table class="form-table">
                         <tr>
