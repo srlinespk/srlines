@@ -18,14 +18,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
-final class SRLines_Order_Notifications {
+final class SRLIORNO_Plugin {
     
     private static $instance = null;
     private $logger;
     private $crm_api_url = 'https://crm.srlines.net/api/v1/send_templet';
     private $db_version = '5.1.0';
-    private $option_name = 'wc_notifications_settings';
+    private $option_name = 'srliorno_settings';
     private $table_name;
     private $context_table;
     private $responses_table;
@@ -39,9 +38,9 @@ final class SRLines_Order_Notifications {
 
     private function __construct() {
         global $wpdb;
-        $this->table_name = $wpdb->prefix . 'wc_notifications';
-        $this->context_table = $wpdb->prefix . 'wc_notifications_context';
-        $this->responses_table = $wpdb->prefix . 'wc_notifications_responses';
+        $this->table_name = $wpdb->prefix . 'srliorno_notifications';
+        $this->context_table = $wpdb->prefix . 'srliorno_context';
+        $this->responses_table = $wpdb->prefix . 'srliorno_responses';
         
         $this->init_logger();
         $this->register_hooks();
@@ -58,7 +57,7 @@ final class SRLines_Order_Notifications {
             }
         }
 
-        $this->logger = new class($log_dir . '/wc-notifications.log') {
+        $this->logger = new class($log_dir . '/srliorno.log') {
             private $log_file;
 
             public function __construct($log_file) {
@@ -111,16 +110,16 @@ final class SRLines_Order_Notifications {
         add_action('admin_notices', [$this, 'show_admin_notices']);
         
         // AJAX handlers
-        add_action('wp_ajax_wc_notifications_save_settings', [$this, 'ajax_save_settings']);
-        add_action('wp_ajax_wc_notifications_test_api_key', [$this, 'ajax_test_api_key']);
-        add_action('wp_ajax_wc_notifications_process_response', [$this, 'ajax_process_response']);
-        add_action('wp_ajax_wc_notifications_resend_notification', [$this, 'ajax_resend_notification']);
+        add_action('wp_ajax_srliorno_save_settings', [$this, 'ajax_save_settings']);
+        add_action('wp_ajax_srliorno_test_api_key', [$this, 'ajax_test_api_key']);
+        add_action('wp_ajax_srliorno_process_response', [$this, 'ajax_process_response']);
+        add_action('wp_ajax_srliorno_resend_notification', [$this, 'ajax_resend_notification']);
         
         // REST API for customer responses - EXACT same format as Shopify app
         add_action('rest_api_init', [$this, 'register_rest_routes']);
         
         // Cleanup schedule
-        add_action('wc_notifications_cleanup', [$this, 'cleanup_old_records']);
+        add_action('srliorno_cleanup', [$this, 'cleanup_old_records']);
     }
 
     public function declare_hpos_compatibility() {
@@ -134,11 +133,11 @@ final class SRLines_Order_Notifications {
         $this->create_tables();
         $this->create_assets_dir();
         
-        if (!wp_next_scheduled('wc_notifications_cleanup')) {
-            wp_schedule_event(time(), 'daily', 'wc_notifications_cleanup');
+        if (!wp_next_scheduled('srliorno_cleanup')) {
+            wp_schedule_event(time(), 'daily', 'srliorno_cleanup');
         }
         
-        update_option('wc_notifications_db_version', $this->db_version);
+        update_option('srliorno_db_version', $this->db_version);
         
         $this->logger->info('🚀 Plugin activated', [
             'version' => $this->db_version,
@@ -147,7 +146,7 @@ final class SRLines_Order_Notifications {
     }
 
     public function deactivate() {
-        wp_clear_scheduled_hook('wc_notifications_cleanup');
+        wp_clear_scheduled_hook('srliorno_cleanup');
         $this->logger->info('📴 Plugin deactivated');
     }
 
@@ -251,101 +250,104 @@ final class SRLines_Order_Notifications {
             'Order Notifications',
             'Order Notif',
             'manage_woocommerce',
-            'wc-notifications',
+            'srliorno',
             [$this, 'render_dashboard'],
             'dashicons-format-chat',
             56
         );
         
         add_submenu_page(
-            'wc-notifications',
+            'srliorno',
             'Dashboard',
             'Dashboard',
             'manage_woocommerce',
-            'wc-notifications',
+            'srliorno',
             [$this, 'render_dashboard']
         );
         
         add_submenu_page(
-            'wc-notifications',
+            'srliorno',
             'Settings',
             'Settings',
             'manage_woocommerce',
-            'wc-notifications-settings',
+            'srliorno-settings',
             [$this, 'render_settings']
         );
         
         add_submenu_page(
-            'wc-notifications',
+            'srliorno',
             'Order Responses',
             'Order Responses',
             'manage_woocommerce',
-            'wc-notifications-responses',
+            'srliorno-responses',
             [$this, 'render_responses']
         );
         
         add_submenu_page(
-            'wc-notifications',
+            'srliorno',
             'Notifications',
             'Notifications',
             'manage_woocommerce',
-            'wc-notifications-notifications',
+            'srliorno-notifications',
             [$this, 'render_notifications']
         );
     }
 
     public function enqueue_scripts($hook) {
-        if (strpos($hook, 'wc-notifications') === false) {
+        if (strpos($hook, 'srliorno') === false) {
             return;
         }
         
         wp_enqueue_style(
-            'wc-notifications-style',
+            'srliorno-style',
             plugin_dir_url(__FILE__) . 'assets/style.css',
             [],
             $this->db_version
         );
         
         wp_enqueue_script(
-            'wc-notifications-script',
+            'srliorno-script',
             plugin_dir_url(__FILE__) . 'assets/script.js',
             ['jquery'],
             $this->db_version,
             true
         );
         
-        wp_localize_script('wc-notifications-script', 'wcNotifications', [
+        $settings = get_option($this->option_name, []);
+
+        wp_localize_script('srliorno-script', 'srliorno_data', [
             'ajax_url' => admin_url('admin-ajax.php'),
-            'webhook_url' => rest_url('wc-notifications/v1/customer-response'),
-            'nonce' => wp_create_nonce('wc_notifications_nonce'),
-            'site_url' => get_site_url()
+            'webhook_url' => rest_url('srliorno/v1/customer-response'),
+            'nonce' => wp_create_nonce('srliorno_nonce'),
+            'site_url' => get_site_url(),
+            'webhook_secret' => $settings['notificationSettings']['webhookSecret'] ?? ''
         ]);
     }
 
     public function show_admin_notices() {
         $screen = get_current_screen();
-        if (strpos($screen->id, 'wc-notifications') === false) {
+        if (strpos($screen->id, 'srliorno') === false) {
             return;
         }
 
         $settings = get_option($this->option_name, []);
         if (empty($settings['notificationSettings']['crmApiKey'])) {
             echo '<div class="notice notice-warning is-dismissible">';
-            echo '<p><strong>📱 Order Notifications:</strong> Please configure your Meta API key in <a href="' . esc_url( admin_url('admin.php?page=wc-notifications-settings') ) . '">settings</a> to start sending notifications.</p>';
+            echo '<p><strong>📱 Order Notifications:</strong> Please configure your Meta API key in <a href="' . esc_url( admin_url('admin.php?page=srliorno-settings') ) . '">settings</a> to start sending notifications.</p>';
             echo '</div>';
         }
     }
 
     /**
      * ============ REST API - EXACT MATCH WITH SHOPIFY APP ============
-     * Endpoint: POST /wp-json/wc-notifications/v1/customer-response
+     * Endpoint: POST /wp-json/srliorno/v1/customer-response
      * Payload: {"message": "0", "from": "+923001234567", "msg_id": "wamid.xxx"}
      */
     public function register_rest_routes() {
-        register_rest_route('wc-notifications/v1', '/customer-response', [
+        register_rest_route('srliorno/v1', '/customer-response', [
             'methods' => 'POST',
             'callback' => [$this, 'handle_customer_response'],
-            'permission_callback' => '__return_true',
+            'permission_callback' => [$this, 'verify_webhook_secret'],
             'args' => [
                 'message' => [
                     'required' => true,
@@ -364,6 +366,34 @@ final class SRLines_Order_Notifications {
                 ]
             ]
         ]);
+    }
+
+    /**
+     * Verify webhook secret for REST API authentication
+     */
+    public function verify_webhook_secret($request) {
+        $settings = get_option($this->option_name, []);
+        $webhook_secret = $settings['notificationSettings']['webhookSecret'] ?? '';
+        
+        if (empty($webhook_secret)) {
+            return new WP_Error(
+                'rest_forbidden',
+                __('Webhook secret is not configured.', 'srlines-order-notifications'),
+                ['status' => 403]
+            );
+        }
+        
+        $provided_secret = $request->get_header('X-Webhook-Secret');
+        
+        if (empty($provided_secret) || !hash_equals($webhook_secret, $provided_secret)) {
+            return new WP_Error(
+                'rest_forbidden',
+                __('Invalid webhook secret.', 'srlines-order-notifications'),
+                ['status' => 403]
+            );
+        }
+        
+        return true;
     }
 
     /**
@@ -519,7 +549,8 @@ final class SRLines_Order_Notifications {
         if ($order_updated) {
             // Mark response as processed
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-            $wpdb->update(                $this->responses_table,
+            $wpdb->update(
+                $this->responses_table,
                 [
                     'processed' => 1,
                     'processed_at' => current_time('mysql'),
@@ -861,7 +892,7 @@ final class SRLines_Order_Notifications {
      * ============ AJAX HANDLERS ============
      */
     public function ajax_save_settings() {
-        check_ajax_referer('wc_notifications_nonce', 'nonce');
+        check_ajax_referer('srliorno_nonce', 'nonce');
         
         if (!current_user_can('manage_woocommerce')) {
             wp_send_json_error(['message' => 'Insufficient permissions'], 403);
@@ -873,6 +904,7 @@ final class SRLines_Order_Notifications {
         $fulfillment_created_enabled = isset($_POST['fulfillmentCreatedEnabled']) && $_POST['fulfillmentCreatedEnabled'] === 'true';
         $fulfillment_created_template = sanitize_text_field( wp_unslash( $_POST['fulfillmentCreatedTemplate'] ?? 'confirm_fulfill' ) );
         $default_phone = sanitize_text_field( wp_unslash( $_POST['defaultPhone'] ?? '+923339776136' ) );
+        $webhook_secret = sanitize_text_field( wp_unslash( $_POST['webhookSecret'] ?? '' ) );
 
         if (empty($crm_api_key)) {
             wp_send_json_error(['message' => 'CRM API key is required'], 400);
@@ -896,7 +928,8 @@ final class SRLines_Order_Notifications {
                     'enabled' => $fulfillment_created_enabled,
                     'templateName' => $fulfillment_created_template
                 ],
-                'defaultPhone' => $default_phone
+                'defaultPhone' => $default_phone,
+                'webhookSecret' => $webhook_secret,
             ],
             'updatedAt' => current_time('mysql')
         ];
@@ -908,7 +941,7 @@ final class SRLines_Order_Notifications {
     }
 
     public function ajax_test_api_key() {
-        check_ajax_referer('wc_notifications_nonce', 'nonce');
+        check_ajax_referer('srliorno_nonce', 'nonce');
         
         if (!current_user_can('manage_woocommerce')) {
             wp_send_json_error(['message' => 'Insufficient permissions'], 403);
@@ -953,7 +986,7 @@ final class SRLines_Order_Notifications {
     }
 
     public function ajax_process_response() {
-        check_ajax_referer('wc_notifications_nonce', 'nonce');
+        check_ajax_referer('srliorno_nonce', 'nonce');
         
         if (!current_user_can('manage_woocommerce')) {
             wp_send_json_error(['message' => 'Insufficient permissions'], 403);
@@ -1005,7 +1038,7 @@ final class SRLines_Order_Notifications {
     }
 
     public function ajax_resend_notification() {
-        check_ajax_referer('wc_notifications_nonce', 'nonce');
+        check_ajax_referer('srliorno_nonce', 'nonce');
         
         if (!current_user_can('manage_woocommerce')) {
             wp_send_json_error(['message' => 'Insufficient permissions'], 403);
@@ -1062,7 +1095,7 @@ final class SRLines_Order_Notifications {
             $wpdb->prepare( "SELECT * FROM %i ORDER BY created_at DESC LIMIT 10", $this->responses_table )
         );
         
-        $webhook_url = rest_url('wc-notifications/v1/customer-response');
+        $webhook_url = rest_url('srliorno/v1/customer-response');
         ?>
         <div class="wrap">
             <h1>📱 SRLines Order Notifications</h1>
@@ -1186,9 +1219,9 @@ final class SRLines_Order_Notifications {
             <div class="widget">
                 <h3>⚡ Quick Actions</h3>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <a href="<?php echo esc_url( admin_url('admin.php?page=wc-notifications-settings') ); ?>" class="button button-primary">⚙️ Configure Settings</a>
-                    <a href="<?php echo esc_url( admin_url('admin.php?page=wc-notifications-responses') ); ?>" class="button">📋 View All Responses</a>
-                    <a href="<?php echo esc_url( admin_url('admin.php?page=wc-notifications-notifications') ); ?>" class="button">📨 View All Notifications</a>
+                    <a href="<?php echo esc_url( admin_url('admin.php?page=srliorno-settings') ); ?>" class="button button-primary">⚙️ Configure Settings</a>
+                    <a href="<?php echo esc_url( admin_url('admin.php?page=srliorno-responses') ); ?>" class="button">📋 View All Responses</a>
+                    <a href="<?php echo esc_url( admin_url('admin.php?page=srliorno-notifications') ); ?>" class="button">📨 View All Notifications</a>
                 </div>
             </div>
         </div>
@@ -1293,7 +1326,7 @@ final class SRLines_Order_Notifications {
     public function render_settings() {
         $settings = get_option($this->option_name, []);
         $notification_settings = $settings['notificationSettings'] ?? [];
-        $webhook_url = rest_url('wc-notifications/v1/customer-response');
+        $webhook_url = rest_url('srliorno/v1/customer-response');
         ?>
         <div class="wrap">
             <h1>⚙️ Order Notification Settings</h1>
@@ -1301,11 +1334,12 @@ final class SRLines_Order_Notifications {
             <div class="notice notice-info" style="border-left-color: #25d366;">
                 <p><strong>📡 Webhook URL for CRM:</strong> <code style="background: #f0f0f1; padding: 5px 10px; border-radius: 4px;"><?php echo esc_url($webhook_url); ?></code></p>
                 <p><small>Configure your CRM to POST customer responses to this URL with JSON payload.</small></p>
+                <p><small>Include the <strong>X-Webhook-Secret</strong> header with your webhook secret for authentication.</small></p>
             </div>
             
             <div class="settings-container" style="background: white; border: 1px solid #e2e4e7; border-radius: 8px; padding: 20px; margin-top: 20px;">
-                <form id="wc-notifications-settings-form">
-                    <?php wp_nonce_field('wc_notifications_settings'); ?>
+                <form id="srliorno-settings-form">
+                    <?php wp_nonce_field('srliorno_settings'); ?>
                     
                     <table class="form-table">
                         <tr>
@@ -1321,6 +1355,22 @@ final class SRLines_Order_Notifications {
                                        placeholder="Enter your Meta API key"
                                        style="width: 100%; max-width: 500px;" />
                                 <p class="description">Your Meta WhatsApp Business API key from CRM system</p>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">
+                                <label for="webhook_secret">🔐 Webhook Secret</label>
+                            </th>
+                            <td>
+                                <input type="text" 
+                                       id="webhook_secret" 
+                                       name="webhook_secret" 
+                                       value="<?php echo esc_attr($notification_settings['webhookSecret'] ?? ''); ?>" 
+                                       class="regular-text" 
+                                       placeholder="Enter a secret key for webhook authentication"
+                                       style="width: 100%; max-width: 500px;" />
+                                <p class="description">Shared secret used to authenticate incoming webhook requests from your CRM. The CRM must send this value in the <code>X-Webhook-Secret</code> header.</p>
                             </td>
                         </tr>
                         
@@ -1734,5 +1784,5 @@ final class SRLines_Order_Notifications {
 }
 
 // Initialize the plugin
-SRLines_Order_Notifications::get_instance();
+SRLIORNO_Plugin::get_instance();
 ?>

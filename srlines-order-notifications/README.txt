@@ -32,16 +32,18 @@ SRLines Order Notifications sends automated messaging notifications to customers
 1. Customer places an order
 2. Plugin sends a message with order details via Meta API
 3. Customer replies with "0" (Confirm) or "1" (Cancel)
-4. CRM POSTs response to webhook URL: `/wp-json/wc-notifications/v1/customer-response`
+4. CRM POSTs response to webhook URL: `/wp-json/srliorno/v1/customer-response` (with X-Webhook-Secret header)
 5. Plugin updates order status automatically
 
 = Webhook Format =
 
 Configure your CRM to POST to this URL:
-`https://yoursite.com/wp-json/wc-notifications/v1/customer-response`
+`https://yoursite.com/wp-json/srliorno/v1/customer-response`
 
 With JSON payload:
 `{"message": "0", "from": "+923001234567", "msg_id": "wamid.1234567890"}`
+
+Include the `X-Webhook-Secret` header with your configured webhook secret for authentication.
 
 == Installation ==
 
@@ -84,6 +86,36 @@ The plugin supports international phone number formats. It automatically normali
 2. Settings page for configuring API key and notification templates.
 3. Order responses page showing customer confirmations and cancellations.
 4. Notifications log showing sent, queued, and failed notifications.
+
+== External Services ==
+
+This plugin relies on the SRLines CRM platform (crm.srlines.net) to send messaging notifications to customers via the Meta WhatsApp Business API.
+
+= What data is sent? =
+
+When a customer places an order or an order is fulfilled, the plugin sends the following data to the SRLines CRM API:
+
+* Customer phone number
+* Customer name
+* Order number and amount
+* Product names
+* Tracking information (for fulfillment notifications)
+
+This data is sent via a secure HTTPS connection to `https://crm.srlines.net/api/v1/send_templet`.
+
+The plugin also sends your CRM API key to `https://crm.srlines.net/api/v1/test` to verify the key is valid when saving settings.
+
+= When is data sent? =
+
+* When a new order transitions to "processing" status (order confirmation notification)
+* When an order is marked as "completed" (fulfillment/shipping notification)
+* When an admin tests the API key from the settings page
+
+= Service links =
+
+* Service provider: SRLines CRM - [https://crm.srlines.net](https://crm.srlines.net)
+* Terms of Service: [https://srlines.net/terms](https://srlines.net/terms)
+* Privacy Policy: [https://srlines.net/privacy](https://srlines.net/privacy)
 
 == Changelog ==
 

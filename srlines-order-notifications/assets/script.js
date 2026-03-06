@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     // Save settings
-    $('#wc-notifications-settings-form').on('submit', function(e) {
+    $('#srliorno-settings-form').on('submit', function(e) {
         e.preventDefault();
         
         const btn = $(this).find('button[type="submit"]');
@@ -9,17 +9,18 @@ jQuery(document).ready(function($) {
         btn.text('Saving...').prop('disabled', true);
         
         $.ajax({
-            url: wcNotifications.ajax_url,
+            url: srliorno_data.ajax_url,
             method: 'POST',
             data: {
-                action: 'wc_notifications_save_settings',
-                nonce: wcNotifications.nonce,
+                action: 'srliorno_save_settings',
+                nonce: srliorno_data.nonce,
                 crmApiKey: $('#crm_api_key').val(),
                 orderCreatedEnabled: $('#order_created_enabled').is(':checked'),
                 orderCreatedTemplate: $('#order_created_template').val(),
                 fulfillmentCreatedEnabled: $('#fulfillment_created_enabled').is(':checked'),
                 fulfillmentCreatedTemplate: $('#fulfillment_created_template').val(),
-                defaultPhone: $('#default_phone').val()
+                defaultPhone: $('#default_phone').val(),
+                webhookSecret: $('#webhook_secret').val()
             },
             success: function(response) {
                 if (response.success) {
@@ -53,11 +54,11 @@ jQuery(document).ready(function($) {
         btn.text('Testing...').prop('disabled', true);
         
         $.ajax({
-            url: wcNotifications.ajax_url,
+            url: srliorno_data.ajax_url,
             method: 'POST',
             data: {
-                action: 'wc_notifications_test_api_key',
-                nonce: wcNotifications.nonce,
+                action: 'srliorno_test_api_key',
+                nonce: srliorno_data.nonce,
                 apiKey: apiKey
             },
             success: function(response) {
@@ -91,11 +92,11 @@ jQuery(document).ready(function($) {
         btn.text('Processing...').prop('disabled', true);
         
         $.ajax({
-            url: wcNotifications.ajax_url,
+            url: srliorno_data.ajax_url,
             method: 'POST',
             data: {
-                action: 'wc_notifications_process_response',
-                nonce: wcNotifications.nonce,
+                action: 'srliorno_process_response',
+                nonce: srliorno_data.nonce,
                 response_id: id
             },
             success: function(response) {
@@ -130,11 +131,11 @@ jQuery(document).ready(function($) {
         btn.text('Resending...').prop('disabled', true);
         
         $.ajax({
-            url: wcNotifications.ajax_url,
+            url: srliorno_data.ajax_url,
             method: 'POST',
             data: {
-                action: 'wc_notifications_resend_notification',
-                nonce: wcNotifications.nonce,
+                action: 'srliorno_resend_notification',
+                nonce: srliorno_data.nonce,
                 notification_id: id
             },
             success: function(response) {
